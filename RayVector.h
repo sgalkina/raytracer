@@ -17,3 +17,5 @@ class RayVector
         double find_length ();
         RayVector get_unit_vector();
     };
+
+#include "RayVector.tpp"
