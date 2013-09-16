@@ -18,4 +18,21 @@ class RayVector
         RayVector get_unit_vector();
     };
 
-#include "RayVector.tpp"
+template < typename T > 
+struct Point {
+    T x, y, z;
+};
+
+template < typename T > class Ray;
+
+template < typename T > 
+class Ray
+    {
+        Point<T> point;
+        RayVector<T> direction;
+      public:
+        Ray (Point<T> startpoint, RayVector<T> rayvector);
+    };
+
+#include "Vector.tpp"
+#include "Ray.tpp"
