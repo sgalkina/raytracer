@@ -8,11 +8,27 @@ RayVector<T> :: RayVector (T a, T b, T c)
     }
 
 template < typename T > 
+RayVector<T> :: RayVector ()
+    {
+        x = 0; y = 0; z = 0;
+    }
+
+
+template < typename T > 
+Point<T> RayVector<T> :: get_coordinates () 
+    {
+        Point<T> point;
+        point.x = x;
+        point.y = y;
+        point.z = z;
+        return point;
+    }
+
+template < typename T > 
 void RayVector<T> :: print_coordinates () 
     {
-        std::cout << "X: " << x << std::endl;
-        std::cout << "Y: " << y << std::endl;
-        std::cout << "Z: " << z << std::endl;
+        Point<T> point = get_coordinates();
+        point.print_point();
     }
 
 template < typename T > 
