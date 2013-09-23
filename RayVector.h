@@ -30,8 +30,25 @@ class Ray
       public:
         static Ray fromPointToDirection (DoubleVector point, DoubleVector rayvector);
         static Ray fromAtoB (DoubleVector point_start, DoubleVector point_end);
+        DoubleVector get_start_point ();
+        UnitVec get_direction ();
         DoubleVector apply (double t);
     };
 
+class Shape 
+    {
+
+    };
+
+class Sphere : Shape 
+    {
+        double radius;
+        DoubleVector point_center;
+      public:
+        Sphere (double radius, DoubleVector point_center);
+        double intersect(Ray ray);
+    };
+
 #include "Vector.tpp"
-#include "Ray.tpp"
+#include "Ray.cpp"
+#include "Shapes.cpp"
