@@ -19,6 +19,7 @@ void RayVector<T> :: print_coordinates ()
         std::cout << "X: " << x << std::endl;
         std::cout << "Y: " << y << std::endl;
         std::cout << "Z: " << z << std::endl;
+        std::cout << std::endl;
     }
 
 template < typename T > 

@@ -20,17 +20,17 @@ class RayVector
     };
  
 typedef RayVector<double> DoubleVector;
-typedef DoubleVector NVec;
+typedef DoubleVector UnitVec;
 
 class Ray
     {
-        NVec direction;
+        UnitVec direction;
         DoubleVector point_start;
-        Ray (DoubleVector point, NVec direction);
+        Ray (DoubleVector point, UnitVec direction);
       public:
-        static Ray getRayFromPointAndDirection (DoubleVector point, DoubleVector rayvector);
-        static Ray getRayFromTwoPoints (DoubleVector point_start, DoubleVector point_end);
-        // DoubleVector apply (T t);
+        static Ray fromPointToDirection (DoubleVector point, DoubleVector rayvector);
+        static Ray fromAtoB (DoubleVector point_start, DoubleVector point_end);
+        DoubleVector apply (double t);
     };
 
 #include "Vector.tpp"

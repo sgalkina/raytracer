@@ -11,8 +11,10 @@ int main()
     DoubleVector gektor (2, 3, 4);
     gektor.print_coordinates();
 
-    Ray some_ray = Ray :: getRayFromPointAndDirection(viktor, gektor);
-    Ray another_ray = Ray :: getRayFromTwoPoints(viktor, gektor);
+    Ray some_ray = Ray :: fromPointToDirection(viktor, gektor);
+    Ray another_ray = Ray :: fromAtoB(viktor, gektor);
+
+    some_ray.apply(2.0);
 
     return 0;
 }
