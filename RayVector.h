@@ -28,8 +28,8 @@ class Ray
         DoubleVector point_start;
         Ray (DoubleVector point, NVec direction);
       public:
-        Ray getRayFromPointAndDirection (DoubleVector point, DoubleVector rayvector);
-        Ray getRayFromTwoPoints (DoubleVector point_start, DoubleVector point_end);
+        static Ray getRayFromPointAndDirection (DoubleVector point, DoubleVector rayvector);
+        static Ray getRayFromTwoPoints (DoubleVector point_start, DoubleVector point_end);
         // DoubleVector apply (T t);
     };
 

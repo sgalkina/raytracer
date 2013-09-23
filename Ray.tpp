@@ -5,13 +5,13 @@ Ray :: Ray (DoubleVector point, NVec rayvector)
     }
 
 Ray Ray :: getRayFromPointAndDirection (DoubleVector point, DoubleVector rayvector) {
-    return Ray(DoubleVector point, NVec rayvector.get_unit_vector())
+    return Ray(point, rayvector.get_unit_vector());
 }
 
 Ray Ray :: getRayFromTwoPoints (DoubleVector point_start, DoubleVector point_end) {
     DoubleVector point = point_start;
     DoubleVector direction = point_end - point_start;
-    return getRayFromPointAndDirection(DoubleVector point, DoubleVector direction)
+    return getRayFromPointAndDirection(point, direction);
 }
 
 // Point<T> Ray<T> :: apply (T t)
