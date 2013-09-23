@@ -1,30 +1,25 @@
-template < typename T > 
-Ray<T> :: Ray (RayVector<T> rayvector)
+Ray :: Ray (DoubleVector point, NVec rayvector)
     {
-        unit_vector = rayvector.get_unit_vector();
-        Point<T> some_point = rayvector.get_coordinates();
-        start_point.x = some_point.x; 
-        start_point.y = some_point.y; 
-        start_point.z = some_point.z;
+        point_start = point;
+        direction = rayvector;
     }
 
-template < typename T > 
-Ray<T> :: Ray (Point<T> A, Point<T> B)
-    {
-        RayVector<T> ray_vector (B.x - A.x, B.y - A.y, B.z - A.z);
-        unit_vector = ray_vector.get_unit_vector();
-        start_point.x = A.x; 
-        start_point.y = A.y; 
-        start_point.z = A.z;
-    }
+Ray Ray :: getRayFromPointAndDirection (DoubleVector point, DoubleVector rayvector) {
+    return Ray(DoubleVector point, NVec rayvector.get_unit_vector())
+}
 
-template < typename T > 
-Point<T> Ray<T> :: apply (T t)
-    {
-        Point<T> end_vector = (unit_vector*t).get_coordinates();
-        Point<T> end_point;
-        end_point.x = start_point.x + end_vector.x;
-        end_point.y = start_point.y + end_vector.y;
-        end_point.z = start_point.z + end_vector.z;
-        return end_point;
-    }
+Ray Ray :: getRayFromTwoPoints (DoubleVector point_start, DoubleVector point_end) {
+    DoubleVector point = point_start;
+    DoubleVector direction = point_end - point_start;
+    return getRayFromPointAndDirection(DoubleVector point, DoubleVector direction)
+}
+
+// Point<T> Ray<T> :: apply (T t)
+//     {
+//         Point<T> end_vector = (unit_vector*t).get_coordinates();
+//         Point<T> end_point;
+//         end_point.x = start_point.x + end_vector.x;
+//         end_point.y = start_point.y + end_vector.y;
+//         end_point.z = start_point.z + end_vector.z;
+//         return end_point;
+//     }
