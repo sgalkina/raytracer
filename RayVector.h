@@ -47,6 +47,7 @@ class Sphere : Shape
       public:
         Sphere (double radius, DoubleVector point_center);
         double intersect(Ray ray);
+        DoubleVector normal (DoubleVector P);
     };
 
 #include "Vector.tpp"
