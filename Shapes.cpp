@@ -8,13 +8,16 @@ double Sphere :: intersect (Ray ray)
     {
     	DoubleVector a1 = point_center;
     	DoubleVector a2 = ray.get_start_point();
-    	double c = (a1 - a2).find_length();
-    	double t1 = c - radius;
+    	UnitVec d = ray.get_direction();
+    	DoubleVector c = a2 - a1;
+    	double sqrtD = sqrt((c&d)*(c&d) - c.find_length() + radius*radius);
+    	double cd = c&d;
+    	double t1 = -cd - sqrtD;
     	if (t1 >= 0) {
     		return t1;
     	}
     	else {
-    		double t2 = c + radius;
+    		double t2 = -cd + sqrtD;
     		if (t2 >= 0) {
     			return t2;
     		}
