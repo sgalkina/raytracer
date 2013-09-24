@@ -28,9 +28,7 @@ double Sphere :: intersect (Ray ray)
 DoubleVector Sphere :: normal (DoubleVector P) 
 	{
 		DoubleVector rad_vec = P - point_center;
-		rad_vec.print_coordinates();
-		std::cout << rad_vec.find_length() << std::endl;
-		if ( rad_vec.find_length() != radius) {
+		if ( rad_vec.find_length() - radius > 0.000001) {
 			std::cout << "Point is not on sphere" << std::endl;
 			DoubleVector vec (0, 0, 0);
 			return vec;
