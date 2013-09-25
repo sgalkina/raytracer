@@ -53,6 +53,12 @@ RayVector<T> RayVector<T> :: operator% (RayVector<T> another)
     }
 
 template < typename T > 
+bool RayVector<T> :: operator== (RayVector<T> another) 
+    {
+        return (x == another.x) && (y == another.y) && (z == another.z);
+    }
+
+template < typename T > 
 RayVector<T> RayVector<T> :: operator* (T number) 
     {
         return RayVector<T> (x*number,

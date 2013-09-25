@@ -15,6 +15,7 @@ class RayVector
         T operator& (RayVector another);
         RayVector operator% (RayVector another);
         RayVector operator* (T number);
+        bool operator== (RayVector another);
         double find_length ();
         RayVector get_unit_vector();
     };
@@ -46,6 +47,7 @@ class Sphere : Shape
         DoubleVector point_center;
       public:
         Sphere (double radius, DoubleVector point_center);
+        Sphere ();
         double intersect(Ray ray);
         DoubleVector normal (DoubleVector P);
     };

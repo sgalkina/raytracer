@@ -4,13 +4,17 @@ Sphere :: Sphere (double radius_len, DoubleVector point)
 		point_center = point;
 	}
 
+Sphere :: Sphere ()
+    {
+    }
+
 double Sphere :: intersect (Ray ray)
     {
     	DoubleVector a1 = point_center;
     	DoubleVector a2 = ray.get_start_point();
     	UnitVec d = ray.get_direction();
     	DoubleVector c = a2 - a1;
-    	double sqrtD = sqrt((c&d)*(c&d) - c.find_length() + radius*radius);
+    	double sqrtD = sqrt((c&d)*(c&d) - (c&c) + radius*radius);
     	double cd = c&d;
     	double t1 = -cd - sqrtD;
     	if (t1 >= 0) {
