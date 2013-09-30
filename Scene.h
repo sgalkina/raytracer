@@ -1,6 +1,10 @@
 #ifndef SCENE
 #define SCENE
 
+#include "Vector.h"
+#include "Ray.h"
+#include "Shapes.h"
+
 class Color {
   DoubleVector color;
   public:

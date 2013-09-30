@@ -1,6 +1,9 @@
 #ifndef SHAPES
 #define SHAPES
 
+#include "Vector.h"
+#include "Ray.h"
+
 class Shape 
     {
 

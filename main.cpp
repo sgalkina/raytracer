@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string.h>
 #include <math.h>
-#include "Scene.h"
-#include "Ray.h"
 #include "Vector.h"
+#include "Ray.h"
 #include "Shapes.h"
+#include "Scene.h"
 
 int main()
 {

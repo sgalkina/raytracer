@@ -1,6 +1,8 @@
 #ifndef RAY
 #define RAY
 
+#include "Vector.h"
+
 class Ray
     {
         UnitVec direction;

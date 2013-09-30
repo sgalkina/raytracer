@@ -1,6 +1,3 @@
-#ifndef VECTOR_TPP
-#define VECTOR_TPP
-
 #include <iostream>
 #include <math.h>
 
@@ -85,5 +82,3 @@ RayVector<T> RayVector<T> :: get_unit_vector ()
                              y/length,
                              z/length);
     }
-
-#endif
