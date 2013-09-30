@@ -1,16 +1,18 @@
 #include <iostream>
 #include <string.h>
 #include <math.h>
-#include "RayVectorShapes.h"
 #include "Scene.h"
+#include "Ray.h"
+#include "Vector.h"
+#include "Shapes.h"
 
 int main()
 {
     DoubleVector viktor (1, 1, 0);
     DoubleVector gektor (0, 0, 0);
     Camera camera (gektor, viktor);
-    int w = 20;
-    int h = 20;
+    int w = 40;
+    int h = 40;
     DoubleVector wh (1, 1, 1);
     Color white (wh);
     DoubleVector bl (0, 0, 0);
@@ -25,10 +27,10 @@ int main()
                 std::cout << "\n";
             }
         if (scene.get_color_for_coordinates(i, j) == white) {
-            std::cout << "o";
+            std::cout << "o ";
         }
         else {
-            std::cout << "x";
+            std::cout << "x ";
         }
     }
     }

@@ -1,3 +1,6 @@
+#ifndef VECTOR_TPP
+#define VECTOR_TPP
+
 #include <iostream>
 #include <math.h>
 
@@ -55,7 +58,9 @@ RayVector<T> RayVector<T> :: operator% (RayVector<T> another)
 template < typename T > 
 bool RayVector<T> :: operator== (RayVector<T> another) 
     {
-        return (x == another.x) && (y == another.y) && (z == another.z);
+        return (fabs(x - another.x) < 1e-6) && 
+               (fabs(y - another.y) < 1e-6) && 
+               (fabs(z - another.z) < 1e-6);
     }
 
 template < typename T > 
@@ -80,3 +85,5 @@ RayVector<T> RayVector<T> :: get_unit_vector ()
                              y/length,
                              z/length);
     }
+
+#endif

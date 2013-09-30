@@ -1,3 +1,6 @@
+#ifndef SCENE
+#define SCENE
+
 class Color {
   DoubleVector color;
   public:
@@ -44,3 +47,5 @@ class Scene {
 };
 
 #include "Scene.cpp"
+
+#endif
