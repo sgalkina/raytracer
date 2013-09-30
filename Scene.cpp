@@ -1,3 +1,8 @@
+#include "Vector.h"
+#include "Ray.h"
+#include "Shapes.h"
+#include "Scene.h"
+
 Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 	position = point_start;
 	direction = (point_end - point_start).get_unit_vector();

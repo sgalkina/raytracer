@@ -1,3 +1,8 @@
+#include "Vector.h"
+#include "Ray.h"
+#include "Shapes.h"
+#include "Scene.h"
+
 Ray :: Ray (DoubleVector point, UnitVec rayvector)
     {
         point_start = point;

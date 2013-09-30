@@ -1,3 +1,8 @@
+#include "Vector.h"
+#include "Ray.h"
+#include "Shapes.h"
+#include "Scene.h"
+
 Sphere :: Sphere (double radius_len, DoubleVector point)
 	{
 		radius = radius_len;

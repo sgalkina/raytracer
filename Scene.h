@@ -50,6 +50,4 @@ class Scene {
     Color get_color_for_coordinates (int i, int j);
 };
 
-#include "Scene.cpp"
-
 #endif
