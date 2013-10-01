@@ -9,16 +9,6 @@ Ray :: Ray (DoubleVector point, UnitVec rayvector)
         direction = rayvector;
     }
 
-DoubleVector Ray :: get_start_point ()
-     {
-         return point_start;
-     }
-
-UnitVec Ray :: get_direction ()
-     {
-         return direction;
-     }
-
 Ray Ray :: fromPointToDirection (DoubleVector point, DoubleVector rayvector) {
     return Ray(point, rayvector.get_unit_vector());
 }

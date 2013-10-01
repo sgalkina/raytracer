@@ -1,6 +1,7 @@
 #ifndef RAYVECTOR
 #define RAYVECTOR
 
+
 template < typename T > class RayVector;
 
 template < typename T > 

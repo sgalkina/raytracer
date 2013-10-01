@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Vector.h"
 #include "Ray.h"
 #include "Shapes.h"
@@ -16,8 +17,8 @@ Sphere :: Sphere ()
 double Sphere :: intersect (Ray ray)
     {
     	DoubleVector a1 = point_center;
-    	DoubleVector a2 = ray.get_start_point();
-    	UnitVec d = ray.get_direction();
+    	DoubleVector a2 = ray.point_start;
+    	UnitVec d = ray.direction;
     	DoubleVector c = a2 - a1;
     	double sqrtD = sqrt((c&d)*(c&d) - (c&c) + radius*radius);
     	double cd = c&d;
@@ -37,7 +38,7 @@ double Sphere :: intersect (Ray ray)
 DoubleVector Sphere :: normal (DoubleVector P) 
 	{
 		DoubleVector rad_vec = P - point_center;
-		if ( fabs(rad_vec.find_length() - radius) > 1e-6) {
+		if ( std::abs(rad_vec.find_length() - radius) > 1e-6) {
 			std::cout << "Point is not on sphere" << std::endl;
 			DoubleVector vec (0, 0, 0);
 			return vec;

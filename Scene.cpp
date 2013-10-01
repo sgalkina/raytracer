@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Vector.h"
 #include "Ray.h"
 #include "Shapes.h"
@@ -55,7 +56,7 @@ Color Scene :: get_color (Ray ray) {
 	Color white (wh);
 	DoubleVector bl (0, 0, 0);
 	Color black (bl);
-	if (fabs(t + 1) < 1e-6) {
+	if (std::abs(t + 1) < 1e-6) {
 		return white;
 	}	
 	return black;

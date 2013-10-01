@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 template < typename T > 
 RayVector<T> :: RayVector (T a, T b, T c)
@@ -55,9 +55,9 @@ RayVector<T> RayVector<T> :: operator% (RayVector<T> another)
 template < typename T > 
 bool RayVector<T> :: operator== (RayVector<T> another) 
     {
-        return (fabs(x - another.x) < 1e-6) && 
-               (fabs(y - another.y) < 1e-6) && 
-               (fabs(z - another.z) < 1e-6);
+        return (std::abs(x - another.x) < 1e-6) && 
+               (std::abs(y - another.y) < 1e-6) && 
+               (std::abs(z - another.z) < 1e-6);
     }
 
 template < typename T > 
