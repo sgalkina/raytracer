@@ -7,10 +7,10 @@ template < typename T > class RayVector;
 template < typename T > 
 class RayVector
     {
+      public:
         T x;
         T y;
         T z;
-      public:
         RayVector (T a, T b, T c);
         RayVector ();
         void print_coordinates ();

@@ -3,6 +3,7 @@
 #include "Ray.h"
 #include "Shapes.h"
 #include "Scene.h"
+#include "Colors.h"
 
 Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 	position = point_start;
@@ -20,7 +21,7 @@ DoubleVector Camera :: get_direction () {
 	return direction;
 }
 
-Screen :: Screen (int w, int h, Camera camera, double focus) {
+Screen1 :: Screen1 (int w, int h, Camera camera, double focus) {
 	width = w;
 	heigth = h;
 	point_center = camera.get_position() + camera.get_direction()*focus;
@@ -30,16 +31,16 @@ Screen :: Screen (int w, int h, Camera camera, double focus) {
 	vector_up = (vector_right % vector_normal).get_unit_vector();
 }
 
-Screen :: Screen () {
+Screen1 :: Screen1 () {
 }
 
-DoubleVector Screen :: get_point (int i, int j) {
+DoubleVector Screen1 :: get_point (int i, int j) {
 	int ci = width/2;
 	int cj = heigth/2;
 	return point_center + vector_right*(i - ci) + vector_up*(j - cj);
 }
 
-Scene :: Scene (Camera c, Screen sc, Sphere sp) {
+Scene :: Scene (Camera c, Screen1 sc, Sphere sp) {
 	camera = c;
 	screen = sc;
 	sphere = sp;
@@ -65,29 +66,5 @@ Color Scene :: get_color (Ray ray) {
 Color Scene :: get_color_for_coordinates (int i, int j) {
 	Ray ray = get_ray(i, j);
 	return get_color(ray);
-}
-
-Color :: Color (DoubleVector v) {
-	color = v;
-}
-
-Color :: Color () {
-
-}
-
-DoubleVector Color :: get_color () {
-	return color;
-}
-
-Color Color :: operator+ (Color other) {
-	return color + other.get_color();
-}
-
-Color Color :: operator% (Color other) {
-	return color % other.get_color();
-}
-
-bool Color :: operator== (Color other) {
-	return color == other.get_color();
 }
 
