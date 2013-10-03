@@ -21,12 +21,10 @@ int main()
 
     cimg_library::CImg<unsigned char> img(w,h,1,3);
     cimg_forXY(img,x,y) { 
-        unsigned char new_color[] = {0, 0, 0};
         DoubleVector new_col = scene.get_color_for_coordinates(x, y).decode_to_CImg_format(); 
-        new_color[0] = new_col.x;
-        new_color[1] = new_col.y;
-        new_color[2] = new_col.z;
-        img(x,y) = * new_color;
+        img(x,y,0,0) = new_col.x;
+        img(x,y,0,1) = new_col.y;
+        img(x,y,0,2) = new_col.z;
     }
     img.display("Raytracer");
 

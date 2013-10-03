@@ -58,9 +58,9 @@ Color Scene :: get_color (Ray ray) {
 	DoubleVector bl (0, 0, 0);
 	Color black (bl);
 	if (std::abs(t + 1) < 1e-6) {
-		return white;
+		return black;
 	}	
-	return black;
+	return white;
 }
 
 Color Scene :: get_color_for_coordinates (int i, int j) {
