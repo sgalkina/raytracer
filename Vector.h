@@ -19,6 +19,7 @@ class RayVector
         T operator& (RayVector another);
         RayVector operator% (RayVector another);
         RayVector operator* (T number);
+        RayVector operator^ (RayVector another);
         bool operator== (RayVector another);
         double find_length ();
         RayVector get_unit_vector();

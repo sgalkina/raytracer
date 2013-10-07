@@ -53,6 +53,14 @@ RayVector<T> RayVector<T> :: operator% (RayVector<T> another)
     }
 
 template < typename T > 
+RayVector<T> RayVector<T> :: operator^ (RayVector<T> another) 
+    {
+        return RayVector<T> (x*another.x,
+                             y*another.y,
+                             z*another.z);
+    }
+
+template < typename T > 
 bool RayVector<T> :: operator== (RayVector<T> another) 
     {
         return (std::abs(x - another.x) < 1e-6) && 

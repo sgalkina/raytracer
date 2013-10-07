@@ -17,8 +17,8 @@ Color Color :: operator+ (Color other) {
 	return color + other.get_color();
 }
 
-Color Color :: operator% (Color other) {
-	return color % other.get_color();
+Color Color :: operator^ (Color other) {
+	return color ^ other.get_color();
 }
 
 bool Color :: operator== (Color other) {

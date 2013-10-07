@@ -10,7 +10,7 @@ class Color {
     Color ();
     DoubleVector get_color();
     Color operator+ (Color other);
-    Color operator% (Color other);
+    Color operator^ (Color other);
     bool operator== (Color other);
     DoubleVector decode_to_CImg_format();
 };

@@ -6,7 +6,6 @@
 
 class Shape 
     {
-
     };
 
 class Sphere : Shape 
@@ -14,7 +13,9 @@ class Sphere : Shape
         double radius;
         DoubleVector point_center;
       public:
-        Sphere (double radius, DoubleVector point_center);
+        DoubleVector ambient;
+        double diffusion;
+        Sphere (double radius, DoubleVector point_center, DoubleVector ambient, double diffusion);
         Sphere ();
         double intersect(Ray ray);
         DoubleVector normal (DoubleVector P);

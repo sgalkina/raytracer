@@ -4,6 +4,7 @@
 #include "Shapes.h"
 #include "Scene.h"
 #include "Colors.h"
+#include "Light.h"
 
 Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 	position = point_start;
@@ -13,54 +14,59 @@ Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 Camera :: Camera () {
 }
 
-DoubleVector Camera :: get_position () {
-	return position;
-}
-
-DoubleVector Camera :: get_direction () {
-	return direction;
-}
-
-Screen1 :: Screen1 (int w, int h, Camera camera, double focus) {
+MyScreen :: MyScreen (int w, int h, Camera camera, double focus) {
 	width = w;
 	heigth = h;
-	point_center = camera.get_position() + camera.get_direction()*focus;
-	vector_normal = camera.get_direction();
+	point_center = camera.position + camera.direction*focus;
+	vector_normal = camera.direction;
 	DoubleVector vector_up_false (0, 0, 1); // todo: rewrite
 	vector_right = (vector_normal % vector_up_false).get_unit_vector();
 	vector_up = (vector_right % vector_normal).get_unit_vector();
 }
 
-Screen1 :: Screen1 () {
+MyScreen :: MyScreen () {
 }
 
-DoubleVector Screen1 :: get_point (int i, int j) {
+DoubleVector MyScreen :: get_point (int i, int j) {
 	int ci = width/2;
 	int cj = heigth/2;
 	return point_center + vector_right*(i - ci) + vector_up*(j - cj);
 }
 
-Scene :: Scene (Camera c, Screen1 sc, Sphere sp) {
+Scene :: Scene (Camera c, MyScreen sc, Sphere sp, DoubleVector amb, Light l) {
 	camera = c;
 	screen = sc;
 	sphere = sp;
+	ambient = amb;
+	light = l;
 }
 
 Ray Scene :: get_ray (int i, int j) {
 	DoubleVector point_end = screen.get_point(i, j);
-	return Ray :: fromAtoB (camera.get_position(), point_end);
+	return Ray :: fromAtoB (camera.position, point_end);
 }
 
 Color Scene :: get_color (Ray ray) {
 	double t = sphere.intersect(ray);
-	DoubleVector wh (1, 1, 1);
-	Color white (wh);
+	DoubleVector point = ray.direction*t + ray.point_start;
 	DoubleVector bl (0, 0, 0);
 	Color black (bl);
 	if (std::abs(t + 1) < 1e-6) {
 		return black;
-	}	
-	return white;
+	}
+	Color dif_color = get_diffuse_color(point);
+	return dif_color;
+
+}
+
+Color Scene :: get_ambient_color () {
+	return ambient^sphere.ambient;
+}
+
+Color Scene :: get_diffuse_color (DoubleVector point) {
+	DoubleVector normal = sphere.normal(point);
+	DoubleVector light_direction = light.position - point;
+	return light.color*(sphere.diffusion*(light_direction&normal));
 }
 
 Color Scene :: get_color_for_coordinates (int i, int j) {

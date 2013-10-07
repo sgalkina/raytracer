@@ -4,10 +4,12 @@
 #include "Shapes.h"
 #include "Scene.h"
 
-Sphere :: Sphere (double radius_len, DoubleVector point)
+Sphere :: Sphere (double radius_len, DoubleVector point, DoubleVector amb, double dif)
 	{
 		radius = radius_len;
 		point_center = point;
+        ambient = amb;
+        diffusion = dif;
 	}
 
 Sphere :: Sphere ()
@@ -26,12 +28,12 @@ double Sphere :: intersect (Ray ray)
     	if (t1 >= 0) {
     		return t1;
     	}
-    	else {
-    		double t2 = -cd + sqrtD;
-    		if (t2 >= 0) {
-    			return t2;
-    		}
-    	}
+    	// else {
+    	// 	double t2 = -cd + sqrtD;
+    	// 	if (t2 >= 0) {
+    	// 		return t2;
+    	// 	}
+    	// }
     	return -1;
     }
 
