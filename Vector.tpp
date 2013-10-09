@@ -41,7 +41,8 @@ RayVector<T> RayVector<T> :: operator- (RayVector<T> another)
 template < typename T > 
 T RayVector<T> :: operator& (RayVector<T> another) 
     {
-        return x*another.x + y*another.y + z*another.z;
+        T result = x*another.x + y*another.y + z*another.z;
+        return result;
     }
 
 template < typename T > 

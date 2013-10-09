@@ -1,7 +1,7 @@
 #include "Light.h"
 
 Light :: Light (DoubleVector p, DoubleVector c) {
-	position = position;
+	position = p;
 	color = c;
 }
 

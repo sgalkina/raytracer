@@ -12,14 +12,14 @@
 int main()
 {
     DoubleVector origin (0, 0, 0);
-    DoubleVector camera_position (0, 100, 200);
+    DoubleVector camera_position (0, 800, 0);
     Camera camera (camera_position, origin);
     int w = 640;
     int h = 480;
-    MyScreen screen (w, h, camera, 40);
+    MyScreen screen (w, h, camera, 300);
     DoubleVector shape_ambient (0.8, 0.8, 0.8);
-    Sphere sphere (200, origin, shape_ambient, 0.3);
-    DoubleVector light_position (50, 200, 100);
+    Sphere sphere (400, origin, shape_ambient, 0.8);
+    DoubleVector light_position (100, 600, 0);
     DoubleVector light_color (0.8, 0.6, 0.7);
     Light light(light_position, light_color);
     DoubleVector scene_ambient (0.1, 0.2, 0.3);

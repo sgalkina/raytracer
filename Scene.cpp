@@ -1,4 +1,5 @@
 #include <cmath>
+#include <iostream>
 #include "Vector.h"
 #include "Ray.h"
 #include "Shapes.h"
@@ -55,7 +56,8 @@ Color Scene :: get_color (Ray ray) {
 		return black;
 	}
 	Color dif_color = get_diffuse_color(point);
-	return dif_color;
+	Color amb_color = get_ambient_color();
+	return dif_color + amb_color;
 
 }
 
@@ -65,8 +67,10 @@ Color Scene :: get_ambient_color () {
 
 Color Scene :: get_diffuse_color (DoubleVector point) {
 	DoubleVector normal = sphere.normal(point);
-	DoubleVector light_direction = light.position - point;
-	return light.color*(sphere.diffusion*(light_direction&normal));
+	DoubleVector light_direction = (light.position - point).get_unit_vector();
+	double sk = light_direction&normal;
+	if (sk < 1e-8 ) {sk = 0;}
+	return light.color*(sphere.diffusion*(sk));
 }
 
 Color Scene :: get_color_for_coordinates (int i, int j) {

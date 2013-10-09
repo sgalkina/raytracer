@@ -28,12 +28,6 @@ double Sphere :: intersect (Ray ray)
     	if (t1 >= 0) {
     		return t1;
     	}
-    	// else {
-    	// 	double t2 = -cd + sqrtD;
-    	// 	if (t2 >= 0) {
-    	// 		return t2;
-    	// 	}
-    	// }
     	return -1;
     }
 
