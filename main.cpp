@@ -18,10 +18,12 @@ int main()
     int h = 480;
     MyScreen screen (w, h, camera, 300);
     DoubleVector shape_ambient (0.8, 0.8, 0.8);
-    Sphere sphere (400, origin, shape_ambient, 0.8);
+    Sphere sphere (400, origin, shape_ambient, 0.5, 0.3);
     DoubleVector light_position (100, 600, 0);
-    DoubleVector light_color (0.8, 0.6, 0.7);
-    Light light(light_position, light_color);
+    DoubleVector light_color (1, 1, 1);
+    DoubleVector specular_color (0.3, 0.1, 0.1);
+    Color light_specular_color (specular_color);
+    Light light(light_position, light_color, light_specular_color, 0.5);
     DoubleVector scene_ambient (0.1, 0.2, 0.3);
     Scene scene (camera, screen, sphere, scene_ambient, light);
 

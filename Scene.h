@@ -41,6 +41,7 @@ class Scene {
     Color get_color_for_coordinates (int i, int j);
     Color get_ambient_color ();
     Color get_diffuse_color (DoubleVector point);
+    Color get_specular_color (DoubleVector point);
 };
 
 #endif

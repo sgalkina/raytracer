@@ -9,7 +9,9 @@ class Light {
   public:
   	DoubleVector position;
   	DoubleVector color;
-  	Light(DoubleVector position, DoubleVector color);
+  	Color specular_color;
+  	double specular_koef;
+  	Light(DoubleVector position, DoubleVector color, Color specular_color, double specular_koef);
   	Light();
 };
 

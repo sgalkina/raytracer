@@ -15,7 +15,8 @@ class Sphere : Shape
       public:
         DoubleVector ambient;
         double diffusion;
-        Sphere (double radius, DoubleVector point_center, DoubleVector ambient, double diffusion);
+        double alpha;
+        Sphere (double radius, DoubleVector point_center, DoubleVector ambient, double diffusion, double alpha);
         Sphere ();
         double intersect(Ray ray);
         DoubleVector normal (DoubleVector P);

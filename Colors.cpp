@@ -21,6 +21,10 @@ Color Color :: operator^ (Color other) {
 	return color ^ other.get_color();
 }
 
+Color Color :: operator* (double t) {
+	return color * t;
+}
+
 bool Color :: operator== (Color other) {
 	return color == other.get_color();
 }

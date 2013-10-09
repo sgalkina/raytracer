@@ -55,9 +55,10 @@ Color Scene :: get_color (Ray ray) {
 	if (std::abs(t + 1) < 1e-6) {
 		return black;
 	}
-	Color dif_color = get_diffuse_color(point);
 	Color amb_color = get_ambient_color();
-	return dif_color + amb_color;
+	Color dif_color = get_diffuse_color(point);
+	Color spec_color = get_specular_color (point);
+	return amb_color + dif_color;
 
 }
 
@@ -70,7 +71,17 @@ Color Scene :: get_diffuse_color (DoubleVector point) {
 	DoubleVector light_direction = (light.position - point).get_unit_vector();
 	double sk = light_direction&normal;
 	if (sk < 1e-8 ) {sk = 0;}
-	return light.color*(sphere.diffusion*(sk));
+	return light.color*(sphere.diffusion*sk);
+}
+
+Color Scene :: get_specular_color (DoubleVector point) {
+	DoubleVector normal = sphere.normal(point);
+	DoubleVector light_direction = (point - light.position).get_unit_vector();
+	double sk = light_direction&normal;
+	DoubleVector reflected = light_direction - normal*2*sk;
+	DoubleVector camera_view = (camera.position - point).get_unit_vector();
+	double reflected_sk = reflected&camera_view;
+	return light.specular_color*light.specular_koef*std::pow(reflected_sk, sphere.alpha);
 }
 
 Color Scene :: get_color_for_coordinates (int i, int j) {

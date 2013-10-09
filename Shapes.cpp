@@ -4,12 +4,13 @@
 #include "Shapes.h"
 #include "Scene.h"
 
-Sphere :: Sphere (double radius_len, DoubleVector point, DoubleVector amb, double dif)
+Sphere :: Sphere (double radius_len, DoubleVector point, DoubleVector amb, double dif, double al)
 	{
 		radius = radius_len;
 		point_center = point;
         ambient = amb;
         diffusion = dif;
+        alpha = al;
 	}
 
 Sphere :: Sphere ()
