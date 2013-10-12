@@ -4,8 +4,8 @@
 #include "Vector.h"
 
 class Color {
-  DoubleVector color;
   public:
+    DoubleVector color;
     Color (DoubleVector v);
     Color ();
     DoubleVector get_color();

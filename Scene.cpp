@@ -58,7 +58,7 @@ Color Scene :: get_color (Ray ray) {
 	Color amb_color = get_ambient_color();
 	Color dif_color = get_diffuse_color(point);
 	Color spec_color = get_specular_color (point);
-	return amb_color + dif_color;
+	return amb_color + dif_color + spec_color;
 
 }
 
@@ -81,6 +81,7 @@ Color Scene :: get_specular_color (DoubleVector point) {
 	DoubleVector reflected = light_direction - normal*2*sk;
 	DoubleVector camera_view = (camera.position - point).get_unit_vector();
 	double reflected_sk = reflected&camera_view;
+	if (reflected_sk < 0) {reflected_sk = 0;}
 	return light.specular_color*light.specular_koef*std::pow(reflected_sk, sphere.alpha);
 }
 
