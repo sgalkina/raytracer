@@ -6,6 +6,7 @@
 #include "Shapes.h"
 #include "Colors.h"
 #include "Light.h"
+#include <set>
 
 class Camera {
   public:
@@ -31,17 +32,17 @@ class MyScreen {
 class Scene {
   Camera camera;
   MyScreen screen;
-  Sphere sphere;
   public:
+    std::set<Sphere> shapes_set;
     DoubleVector ambient;
     Light light;
-    Scene (Camera camera, MyScreen screen, Sphere sphere, DoubleVector ambient, Light light);
+    Scene (Camera camera, MyScreen screen, std::set<Sphere> shapes_set, DoubleVector ambient, Light light);
     Ray get_ray (int i, int j);
     Color get_color (Ray ray);
     Color get_color_for_coordinates (int i, int j);
-    Color get_ambient_color ();
-    Color get_diffuse_color (DoubleVector point);
-    Color get_specular_color (DoubleVector point);
+    Color get_ambient_color (Shape shape);
+    Color get_diffuse_color (Shape shape, DoubleVector point);
+    Color et_specular_color (Shape shape, DoubleVector point);
 };
 
 #endif

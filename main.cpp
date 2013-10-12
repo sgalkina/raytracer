@@ -8,24 +8,36 @@
 #include "Shapes.h"
 #include "Colors.h"
 #include "Light.h"
+#include <set>
 
 int main()
 {
     DoubleVector origin (0, 0, 0);
+    DoubleVector center2 (160, 0, 0);
+    DoubleVector center3 (-180, 0, 0);
+    
     DoubleVector camera_position (0, 800, 0);
     Camera camera (camera_position, origin);
     int w = 640;
     int h = 480;
     MyScreen screen (w, h, camera, 300);
-    DoubleVector shape_ambient (0.8, 0.8, 0.8);
-    Sphere sphere (400, origin, shape_ambient, 0.5, 10);
+    DoubleVector shape_ambient1 (0.8, 0.8, 0.8);
+    DoubleVector shape_ambient2 (0.8, 0.3, 0.3);
+    DoubleVector shape_ambient3 (0.1, 0.8, 0.4);
+    Sphere sphere1 (150, origin, shape_ambient1, 0.5, 10);
+    Sphere sphere2 (100, center2, shape_ambient2, 0.8, 10);
+    Sphere sphere3 (50, center3, shape_ambient3, 0.1, 10);
+    std::set<Sphere> sphere_set;
+    sphere_set.insert(sphere1);
+    sphere_set.insert(sphere2);
+    sphere_set.insert(sphere3);
     DoubleVector light_position (100, 600, 0);
     DoubleVector light_color (1, 1, 1);
     DoubleVector specular_color (0.3, 0.3, 0.3);
     Color light_specular_color (specular_color);
     Light light(light_position, light_color, light_specular_color, 0.8);
     DoubleVector scene_ambient (0.1, 0.2, 0.3);
-    Scene scene (camera, screen, sphere, scene_ambient, light);
+    Scene scene (camera, screen, sphere_set, scene_ambient, light);
 
     cimg_library::CImg<unsigned char> img(w,h,1,3);
     cimg_forXY(img,x,y) { 
