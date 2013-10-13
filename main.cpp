@@ -13,8 +13,8 @@
 int main()
 {
     DoubleVector origin (0, 0, 0);
-    DoubleVector center2 (600, 0, 0);
-    DoubleVector center3 (-500, 0, 0);
+    DoubleVector center2 (500, 0, -400);
+    DoubleVector center3 (-150, 0, -450);
     
     DoubleVector camera_position (0, 800, 0);
     Camera camera (camera_position, origin);
@@ -23,7 +23,7 @@ int main()
     MyScreen screen (w, h, camera, 300);
     DoubleVector shape_ambient1 (0.8, 0.8, 0.8);
     DoubleVector shape_ambient2 (0.8, 0.3, 0.3);
-    DoubleVector shape_ambient3 (0.1, 0.8, 0.4);
+    DoubleVector shape_ambient3 (0.4, 0.9, 0.7);
     Sphere sphere1 (300, origin, shape_ambient1, 0.5, 10);
     Sphere sphere2 (150, center2, shape_ambient2, 0.8, 10);
     Sphere sphere3 (100, center3, shape_ambient3, 0.1, 10);

@@ -41,6 +41,6 @@ DoubleVector Sphere :: normal (DoubleVector P)
 			return vec;
 		}
 		else {
-			return rad_vec.get_unit_vector()*(radius + 1) - P;
+			return rad_vec.get_unit_vector();
 		}
 	}
