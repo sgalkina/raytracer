@@ -1,12 +1,12 @@
 #include <cmath>
 #include <iostream>
+#include <vector>
 #include "Vector.h"
 #include "Ray.h"
 #include "Shapes.h"
 #include "Scene.h"
 #include "Colors.h"
 #include "Light.h"
-#include <set>
 
 Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 	position = point_start;
@@ -35,7 +35,7 @@ DoubleVector MyScreen :: get_point (int i, int j) {
 	return point_center + vector_right*(i - ci) + vector_up*(j - cj);
 }
 
-Scene :: Scene (Camera c, MyScreen sc, std::set<Shape> shapes, DoubleVector amb, Light l) {
+Scene :: Scene (Camera c, MyScreen sc, std::vector<Sphere> shapes, DoubleVector amb, Light l) {
 	camera = c;
 	screen = sc;
 	shapes_set = shapes;
@@ -49,40 +49,41 @@ Ray Scene :: get_ray (int i, int j) {
 }
 
 Color Scene :: get_color (Ray ray) {
-	int N = int(shapes_set.size());
+	int N = shapes_set.size();
 	double t = 0.0;
+	int j = 0;
 	for (int i = 0; i < N; i++) {
-		t = sphere.intersect(ray);
+		t = shapes_set[i].intersect(ray);
 		if (std::abs(t + 1) > 1e-6) {
+			j = i;
 			break;
-		} 
+		}
 	}
 	DoubleVector bl (0, 0, 0);
 	Color black (bl);
 	if (std::abs(t + 1) < 1e-6) {
 		return black;
 	}
-
 	DoubleVector point = ray.direction*t + ray.point_start;
-	Color amb_color = get_ambient_color(shapes_set[i]);
-	Color dif_color = get_diffuse_color(shapes_set[i], point);
-	Color spec_color = get_specular_color(shapes_set[i], point);
+	Color amb_color = get_ambient_color(shapes_set[j]);
+	Color dif_color = get_diffuse_color(shapes_set[j], point);
+	Color spec_color = get_specular_color(shapes_set[j], point);
 	return amb_color + dif_color + spec_color;
 
 }
 
-Color Scene :: get_ambient_color (Shape shape) {
+Color Scene :: get_ambient_color (Sphere shape) {
 	return ambient^shape.ambient;
 }
 
-Color Scene :: get_diffuse_color (Shape shape, DoubleVector point) {
+Color Scene :: get_diffuse_color (Sphere shape, DoubleVector point) {
 	DoubleVector normal = shape.normal(point);
 	DoubleVector light_direction = (light.position - point).get_unit_vector();
 	double sk = light_direction&normal;
 	return light.color*(shape.diffusion*sk);
 }
 
-Color Scene :: get_specular_color (Shape shape, DoubleVector point) {
+Color Scene :: get_specular_color (Sphere shape, DoubleVector point) {
 	DoubleVector normal = shape.normal(point);
 	DoubleVector light_direction = (point - light.position).get_unit_vector();
 	double sk = light_direction&normal;
