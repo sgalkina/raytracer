@@ -16,13 +16,12 @@ Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 Camera :: Camera () {
 }
 
-MyScreen :: MyScreen (int w, int h, Camera camera, double focus) {
+MyScreen :: MyScreen (int w, int h, Camera camera, double focus, DoubleVector up) {
 	width = w;
 	heigth = h;
 	point_center = camera.position + camera.direction*focus;
 	vector_normal = camera.direction;
-	DoubleVector vector_up_false (0, 0, 1); // todo: rewrite
-	vector_right = (vector_normal % vector_up_false).get_unit_vector();
+	vector_right = (vector_normal % up).get_unit_vector();
 	vector_up = (vector_right % vector_normal).get_unit_vector();
 }
 

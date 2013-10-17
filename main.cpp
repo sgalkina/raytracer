@@ -17,10 +17,11 @@ int main()
     DoubleVector center3 (-150, 0, -450);
     
     DoubleVector camera_position (0, 800, 0);
+    DoubleVector false_up (0, 0, 1);
     Camera camera (camera_position, origin);
     int w = 640;
     int h = 480;
-    MyScreen screen (w, h, camera, 300);
+    MyScreen screen (w, h, camera, 300, false_up);
     DoubleVector shape_ambient1 (0.8, 0.8, 0.8);
     DoubleVector shape_ambient2 (0.8, 0.3, 0.3);
     DoubleVector shape_ambient3 (0.4, 0.9, 0.7);

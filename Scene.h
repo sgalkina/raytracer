@@ -24,7 +24,7 @@ class MyScreen {
   UnitVec vector_right;
   UnitVec vector_normal;
   public:
-    MyScreen (int w, int h, Camera camera, double focus);
+    MyScreen (int w, int h, Camera camera, double focus, DoubleVector up);
     MyScreen ();
     DoubleVector get_point (int i, int j);
 };
