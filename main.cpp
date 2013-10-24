@@ -21,7 +21,9 @@ int main()
     Camera camera (camera_position, origin);
     int w = 640;
     int h = 480;
-    MyScreen screen (w, h, camera, 300, false_up);
+    int r_x = 640;
+    int r_y = 480;
+    MyScreen screen (w, h, r_x, r_y, camera, 300, false_up);
     DoubleVector shape_ambient1 (0.8, 0.8, 0.8);
     DoubleVector shape_ambient2 (0.8, 0.3, 0.3);
     DoubleVector shape_ambient3 (0.4, 0.9, 0.7);
@@ -41,11 +43,22 @@ int main()
     Scene scene (camera, screen, sphere_set, scene_ambient, light);
 
     cimg_library::CImg<unsigned char> img(w,h,1,3);
+    int a = 1; int b = 1;
+    DoubleVector new_col (0, 0, 0);
     cimg_forXY(img,x,y) { 
-        DoubleVector new_col = scene.get_color_for_coordinates(x, y).decode_to_CImg_format(); 
+        if (a > screen.width_step) {
+            a = 1;
+        }
+        if (b > screen.height_step) {
+            b = 1;
+        }
+        if (a == 1 && b == 1) {
+        new_col = scene.get_color_for_coordinates(x, y).decode_to_CImg_format(); }
         img(x,y,0,0) = new_col.x;
         img(x,y,0,1) = new_col.y;
         img(x,y,0,2) = new_col.z;
+        a++;
+        b++;
     }
     img.display("Raytracer");
 

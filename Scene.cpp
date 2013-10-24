@@ -16,9 +16,13 @@ Camera :: Camera (DoubleVector point_start, DoubleVector point_end) {
 Camera :: Camera () {
 }
 
-MyScreen :: MyScreen (int w, int h, Camera camera, double focus, DoubleVector up) {
+MyScreen :: MyScreen (int w, int h, int r_x, int r_y, Camera camera, double focus, DoubleVector up) {
 	width = w;
 	heigth = h;
+    resolution_x = r_x;
+    resolution_y = r_y;
+    w/r_x < 1 ? width_step = 1 : width_step = w/r_x;
+    h/r_y < 1 ? height_step = 1 : height_step = h/r_y;
 	point_center = camera.position + camera.direction*focus;
 	vector_normal = camera.direction;
 	vector_right = (vector_normal % up).get_unit_vector();

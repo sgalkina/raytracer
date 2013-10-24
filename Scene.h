@@ -17,14 +17,18 @@ class Camera {
 };
 
 class MyScreen {
-  double width;
-  double heigth;
+  int width;
+  int heigth;
+  int resolution_x;
+  int resolution_y;
   DoubleVector point_center;
   UnitVec vector_up;
   UnitVec vector_right;
   UnitVec vector_normal;
   public:
-    MyScreen (int w, int h, Camera camera, double focus, DoubleVector up);
+    int width_step;
+    int height_step;
+    MyScreen (int w, int h, int r_x, int r_y, Camera camera, double focus, DoubleVector up);
     MyScreen ();
     DoubleVector get_point (int i, int j);
 };
