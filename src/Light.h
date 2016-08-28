@@ -1,6 +1,4 @@
-#ifndef LIGHT
-#define LIGHT
-
+#pragma once
 #include "Colors.h"
 #include "Ray.h"
 #include "Vector.h"
@@ -15,5 +13,3 @@ public:
         double specular_koef);
   Light();
 };
-
-#endif

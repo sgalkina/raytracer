@@ -1,6 +1,4 @@
-#ifndef COLOR
-#define COLOR
-
+#pragma once
 #include "Vector.h"
 
 class Color {
@@ -15,5 +13,3 @@ public:
   Color operator*(double t);
   DoubleVector decode_to_CImg_format();
 };
-
-#endif

@@ -12,3 +12,5 @@
 *.lai
 *.la
 *.a
+
+bin/render

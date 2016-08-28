@@ -1,6 +1,4 @@
-#ifndef SHAPES
-#define SHAPES
-
+#pragma once
 #include "Ray.h"
 #include "Vector.h"
 
@@ -20,5 +18,3 @@ public:
   double intersect(Ray ray);
   DoubleVector normal(DoubleVector P);
 };
-
-#endif

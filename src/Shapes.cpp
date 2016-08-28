@@ -33,9 +33,7 @@ DoubleVector Sphere::normal(DoubleVector P) {
   DoubleVector rad_vec = P - point_center;
   if (std::abs(rad_vec.find_length() - radius) > 1e-6) {
     std::cout << "Point is not on sphere" << std::endl;
-    DoubleVector vec(0, 0, 0);
-    return vec;
-  } else {
-    return rad_vec.get_unit_vector();
+    return DoubleVector(0, 0, 0);
   }
+  return rad_vec.get_unit_vector();
 }

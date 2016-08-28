@@ -1,6 +1,4 @@
-#ifndef RAY
-#define RAY
-
+#pragma once
 #include "Vector.h"
 
 class Ray {
@@ -13,5 +11,3 @@ public:
   static Ray fromAtoB(DoubleVector point_start, DoubleVector point_end);
   DoubleVector apply(double t);
 };
-
-#endif

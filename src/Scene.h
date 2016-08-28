@@ -1,6 +1,4 @@
-#ifndef SCENE
-#define SCENE
-
+#pragma once
 #include "Colors.h"
 #include "Light.h"
 #include "Ray.h"
@@ -52,5 +50,3 @@ public:
   Color get_diffuse_color(Sphere shape, DoubleVector point);
   Color get_specular_color(Sphere shape, DoubleVector point);
 };
-
-#endif
