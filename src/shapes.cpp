@@ -1,10 +1,10 @@
-#include "Shapes.h"
-#include "Ray.h"
-#include "Scene.h"
-#include "Vector.h"
+#include "shapes.h"
+#include "ray.h"
+#include "scene.h"
+#include "vector.h"
 #include <cmath>
 
-Sphere::Sphere(double radius_len, DoubleVector point, DoubleVector amb,
+sphere::sphere(double radius_len, double_vector point, double_vector amb,
                double dif, double al) {
   radius = radius_len;
   point_center = point;
@@ -13,13 +13,13 @@ Sphere::Sphere(double radius_len, DoubleVector point, DoubleVector amb,
   alpha = al;
 }
 
-Sphere::Sphere() {}
+sphere::sphere() {}
 
-double Sphere::intersect(Ray ray) {
-  DoubleVector a1 = point_center;
-  DoubleVector a2 = ray.point_start;
-  UnitVec d = ray.direction;
-  DoubleVector c = a2 - a1;
+double sphere::intersect(ray ray) {
+  double_vector a1 = point_center;
+  double_vector a2 = ray.point_start;
+  unit_vector d = ray.direction;
+  double_vector c = a2 - a1;
   double sqrtD = sqrt((c & d) * (c & d) - (c & c) + radius * radius);
   double cd = c & d;
   double t1 = -cd - sqrtD;
@@ -29,11 +29,11 @@ double Sphere::intersect(Ray ray) {
   return -1;
 }
 
-DoubleVector Sphere::normal(DoubleVector P) {
-  DoubleVector rad_vec = P - point_center;
+double_vector sphere::normal(double_vector P) {
+  double_vector rad_vec = P - point_center;
   if (std::abs(rad_vec.find_length() - radius) > 1e-6) {
     std::cout << "Point is not on sphere" << std::endl;
-    return DoubleVector(0, 0, 0);
+    return double_vector(0, 0, 0);
   }
   return rad_vec.get_unit_vector();
 }
