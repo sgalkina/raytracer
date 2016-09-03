@@ -11,14 +11,14 @@ bin/main.o: src/main.cpp src/vector.h src/shapes.h src/light.h src/ray.h src/vec
 bin/colors.o: src/colors.h src/vector.h src/colors.cpp
 	clang++ -o bin/colors.o -c $(CPP_FLAGS) src/colors.cpp
 
-bin/shapes.o: src/shapes.h src/shapes.cpp
+bin/shapes.o: src/shapes.h src/shapes.cpp src/vector.h src/ray.h
 	clang++ -o bin/shapes.o -c $(CPP_FLAGS) src/shapes.cpp
 
-bin/light.o: src/light.h src/light.cpp
+bin/light.o: src/light.h src/light.cpp src/vector.h src/colors.h
 	clang++ -o bin/light.o -c $(CPP_FLAGS) src/light.cpp
 
-bin/ray.o: src/ray.h src/ray.cpp
+bin/ray.o: src/ray.h src/ray.cpp src/vector.h
 	clang++ -o bin/ray.o -c $(CPP_FLAGS) src/ray.cpp
 
-bin/scene.o: src/scene.h src/scene.cpp
+bin/scene.o: src/scene.h src/scene.cpp src/colors.h src/ray.h src/vector.h src/shapes.h src/light.h
 	clang++ -o bin/scene.o -c $(CPP_FLAGS) src/scene.cpp

@@ -1,6 +1,5 @@
 #include "shapes.h"
 #include "ray.h"
-#include "scene.h"
 #include "vector.h"
 #include <cmath>
 

@@ -78,20 +78,20 @@ color scene::get_ambient_color(sphere shape) { return ambient ^ shape.ambient; }
 
 color scene::get_diffuse_color(sphere shape, double_vector point) {
   double_vector normal = shape.normal(point);
-  double_vector light_direction = (light_.position - point).get_unit_vector();
+  double_vector light_direction = (light_.position() - point).get_unit_vector();
   double sk = light_direction & normal;
-  return light_.color_ * (shape.diffusion * sk);
+  return light_.colour() * (shape.diffusion * sk);
 }
 
 color scene::get_specular_color(sphere shape, double_vector point) {
   double_vector normal = shape.normal(point);
-  double_vector light_direction = (point - light_.position).get_unit_vector();
+  double_vector light_direction = (point - light_.position()).get_unit_vector();
   double sk = light_direction & normal;
   double_vector reflected = light_direction - normal * 2 * sk;
   double_vector camera_view = (camera_.position - point).get_unit_vector();
   double reflected_sk = reflected & camera_view;
   reflected_sk = std::max(reflected_sk, 0.0);
-  return light_.specular_color * light_.specular_koef *
+  return light_.specular_color() * light_.specular_coef() *
          std::pow(reflected_sk, shape.alpha);
 }
 
