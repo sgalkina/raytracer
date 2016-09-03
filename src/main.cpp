@@ -55,9 +55,9 @@ int main() {
     if (a == 1 && b == 1) {
       new_col = scene.get_color_for_coordinates(x, y).decode_to_CImg_format();
     }
-    img(x, y, 0, 0) = new_col.x;
-    img(x, y, 0, 1) = new_col.y;
-    img(x, y, 0, 2) = new_col.z;
+    img(x, y, 0, 0) = new_col.x();
+    img(x, y, 0, 1) = new_col.y();
+    img(x, y, 0, 2) = new_col.z();
     a++;
     b++;
   }
