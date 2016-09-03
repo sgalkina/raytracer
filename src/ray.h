@@ -9,11 +9,12 @@ public:
                                      double_vector const &direction);
   static ray from_point_to_point(double_vector const &point_start,
                                  double_vector const &point_end);
+
+  unit_vector direction() const;
+  double_vector point_start() const;
   double_vector apply(double t);
 
-  unit_vector direction;
-
-  double_vector point_start;
-
 private:
+  unit_vector direction_;
+  double_vector point_start_;
 };

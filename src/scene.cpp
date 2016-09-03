@@ -67,7 +67,7 @@ color scene::get_color(ray ray) {
   if (std::abs(t + 1) < 1e-6) {
     return black;
   }
-  double_vector point = ray.direction * t + ray.point_start;
+  double_vector point = ray.apply(t);
   color amb_color = get_ambient_color(shapes_set[j]);
   color dif_color = get_diffuse_color(shapes_set[j], point);
   color spec_color = get_specular_color(shapes_set[j], point);

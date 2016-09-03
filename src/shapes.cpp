@@ -16,8 +16,8 @@ sphere::sphere() {}
 
 double sphere::intersect(ray ray) {
   double_vector a1 = point_center;
-  double_vector a2 = ray.point_start;
-  unit_vector d = ray.direction;
+  double_vector a2 = ray.point_start();
+  unit_vector d = ray.direction();
   double_vector c = a2 - a1;
   double sqrtD = sqrt((c & d) * (c & d) - (c & c) + radius * radius);
   double cd = c & d;
