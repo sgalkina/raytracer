@@ -15,25 +15,18 @@ camera::camera(double_vector point_start, double_vector point_end) {
 
 camera::camera() {}
 
-screen::screen(int w, int h, int r_x, int r_y, camera current_camera,
-               double focus, double_vector up) {
-  width = w;
-  heigth = h;
-  resolution_x = r_x;
-  resolution_y = r_y;
-  width_step = std::max(w / r_x, 1);
-  height_step = std::max(h / r_y, 1);
-  point_center = current_camera.position + current_camera.direction * focus;
-  vector_normal = current_camera.direction;
-  vector_right = (vector_normal % up).get_unit_vector();
-  vector_up = (vector_right % vector_normal).get_unit_vector();
-}
+screen::screen(size_t w, size_t h, camera current_camera, double focus,
+               double_vector up)
+    : width_(w), heigth_(h),
+      center_(current_camera.position + current_camera.direction * focus),
+      normal_(current_camera.direction),
+      right_((normal_ % up).get_unit_vector()),
+      up_((right_ % normal_).get_unit_vector()) {}
 
 screen::screen() {}
 
-double_vector screen::get_point(int i, int j) {
-  return point_center + vector_right * (i - width / 2) +
-         vector_up * (j - heigth / 2);
+double_vector screen::get_point(int i, int j) const {
+  return center_ + right_ * (i - width_ / 2) + up_ * (j - heigth_ / 2);
 }
 
 scene::scene(camera c, screen sc, std::vector<sphere> shapes, double_vector amb,

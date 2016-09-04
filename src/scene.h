@@ -15,22 +15,19 @@ public:
 };
 
 class screen {
-  int width;
-  int heigth;
-  int resolution_x;
-  int resolution_y;
-  double_vector point_center;
-  unit_vector vector_up;
-  unit_vector vector_right;
-  unit_vector vector_normal;
-
 public:
-  int width_step;
-  int height_step;
-  screen(int w, int h, int r_x, int r_y, camera current_camera, double focus,
+  screen(size_t w, size_t h, camera current_camera, double focus,
          double_vector up);
   screen();
-  double_vector get_point(int i, int j);
+  double_vector get_point(int i, int j) const;
+
+private:
+  size_t width_;
+  size_t heigth_;
+  double_vector center_;
+  unit_vector normal_;
+  unit_vector right_;
+  unit_vector up_;
 };
 
 class scene {
