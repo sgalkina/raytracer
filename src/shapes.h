@@ -17,4 +17,5 @@ public:
   sphere();
   double intersect(ray ray);
   double_vector normal(double_vector P);
+  void print() const;
 };

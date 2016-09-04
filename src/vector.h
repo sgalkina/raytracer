@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 #include <cmath>
 #include <iostream>
 
@@ -95,5 +96,7 @@ template <typename T> double ray_vector<T>::find_length() const {
 
 template <typename T> ray_vector<T> ray_vector<T>::get_unit_vector() const {
   double length = find_length();
-  return ray_vector<T>(x_ / length, y_ / length, z_ / length);
+  ray_vector<T> result = ray_vector<T>(x_ / length, y_ / length, z_ / length);
+  assert(std::abs(result.find_length() - 1) < 1e-6);
+  return result;
 }
