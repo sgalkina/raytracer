@@ -1,7 +1,11 @@
 CPP_FLAGS=-O2 -Wall -std=c++11
 
+display: bin/render
+	./bin/render
+	mogrify -format png bin/image.ppm
+	mv bin/image.png images/current.png
+
 render: bin/render
-	display bin/image.ppm
 
 bin/render: bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
 	clang++ -o bin/render $(CPP_FLAGS) bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o

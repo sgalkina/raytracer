@@ -59,9 +59,7 @@ color scene::get_color(ray ray) const {
   }
   double_vector point = ray.apply(t_min);
   color amb_color = get_ambient_color(shapes_set[j]);
-  // color dif_color = bl;
   color dif_color = get_diffuse_color(shapes_set[j], point);
-  // color spec_color = bl;
   color spec_color = get_specular_color(shapes_set[j], point);
   return amb_color + dif_color + spec_color;
 }

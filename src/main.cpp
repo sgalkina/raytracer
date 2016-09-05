@@ -17,9 +17,9 @@ double random(long from, long to) {
   return rand() % (to - from) + from + ((double)rand() / (RAND_MAX));
 }
 
-double_vector random_center(size_t width, size_t heigth) {
-  long MAX = 800;
-  return double_vector(random(-MAX, MAX), random(-MAX, MAX), random(-MAX, MAX));
+double_vector random_center(int distance) {
+  size_t MAX = distance;
+  return double_vector(random(-MAX, MAX), random(0, 0), random(-MAX, MAX));
 }
 
 double_vector random_vector(long from, long to) {
@@ -36,33 +36,33 @@ void make_image(size_t width, size_t height, scene const &sc) {
     for (size_t x = 0; x < width; ++x) {
       double_vector pixel =
           sc.get_color_for_coordinates(x, y).decode_to_CImg_format();
-      f << pixel.x() << " " << pixel.y() << " " << pixel.z() << "  ";
+      f << (char)pixel.x() << (char)pixel.y() << (char)pixel.z();
     }
-    f << '\n';
   }
 }
 
 int main() {
   std::srand(std::time(0));
 
-  size_t w = 10;
-  size_t h = 10;
+  size_t w = 640;
+  size_t h = 640;
   double alpha = 10;
-  double_vector camera_position(0, 1600, 0);
+  int distance = 5000;
+  double_vector camera_position(0, distance, 0);
   double_vector false_up(0, 0, 1);
   camera camera(camera_position, double_vector(0, 0, 0));
   screen screen(w, h, camera, 300, false_up);
-  double_vector light_position(0, 2800, 0);
+  double_vector light_position(1000, 2800, 300);
   double_vector light_color(1, 1, 1);
   double_vector specular_color(0.3, 0.3, 0.3);
   color light_specular_color(specular_color);
   light light(light_position, light_color, light_specular_color, 0.8);
   double_vector scene_ambient(0.3, 0.3, 0.3);
 
-  size_t n = 5;
+  size_t n = 15;
   std::vector<sphere> sphere_set;
   for (size_t i = 0; i < n; ++i) {
-    sphere sphere_(random(100, 400), random_center(2000, 2000),
+    sphere sphere_(random(distance / 20, distance / 5), random_center(distance),
                    random_vector(0, 1), random(0, 1), alpha);
     sphere_set.push_back(sphere_);
   }
