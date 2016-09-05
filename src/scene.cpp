@@ -26,7 +26,8 @@ screen::screen(size_t w, size_t h, camera current_camera, double focus,
 screen::screen() {}
 
 double_vector screen::get_point(int i, int j) const {
-  return center_ + right_ * (i - width_ / 2) + up_ * (j - heigth_ / 2);
+  return center_ + right_ * (i - (int)width_ / 2) +
+         up_ * (j - (int)heigth_ / 2);
 }
 
 scene::scene(camera c, screen sc, std::vector<sphere> shapes, double_vector amb,
@@ -43,27 +44,25 @@ ray scene::get_ray(int i, int j) {
 }
 
 color scene::get_color(ray ray) {
-  int N = shapes_set.size();
-  double t = 0.0;
-  int j = 0;
-  for (int i = 0; i < N; i++) {
+  double t_min = 1e+15;
+  size_t j = -1;
+  double t = -1;
+  for (size_t i = 0; i < shapes_set.size(); ++i) {
     t = shapes_set[i].intersect(ray);
-    if (std::abs(t + 1) > 1e-6) {
+    if (std::abs(t + 1) > 1e-6 && t < t_min) {
+      t_min = t;
       j = i;
-      break;
     }
   }
-  double_vector bl(0, 0, 0);
-  color black(bl);
-  if (std::abs(t + 1) < 1e-6) {
-    return black;
+  if (std::abs(t_min - 1e+15) < 1e-6) {
+    return double_vector(0, 0, 0);
   }
-  // double_vector point = ray.apply(t);
+  double_vector point = ray.apply(t_min);
   color amb_color = get_ambient_color(shapes_set[j]);
-  color dif_color = bl;
-  // color dif_color = get_diffuse_color(shapes_set[j], point);
-  color spec_color = bl;
-  // color spec_color = get_specular_color(shapes_set[j], point);
+  // color dif_color = bl;
+  color dif_color = get_diffuse_color(shapes_set[j], point);
+  // color spec_color = bl;
+  color spec_color = get_specular_color(shapes_set[j], point);
   return amb_color + dif_color + spec_color;
 }
 

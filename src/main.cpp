@@ -17,7 +17,9 @@ double random(long from, long to) {
 
 double_vector random_center(size_t width, size_t heigth) {
   long MAX = 800;
-  return double_vector(random(-MAX, MAX), random(-MAX, MAX), random(-MAX, MAX));
+  return double_vector(random(-MAX, MAX), 0, random(-MAX, MAX));
+  // return double_vector(random(-MAX, MAX), random(-MAX, MAX), random(-MAX,
+  // MAX));
 }
 
 double_vector random_vector(long from, long to) {
@@ -32,22 +34,22 @@ int main() {
   size_t w = 640;
   size_t h = 640;
   double alpha = 10;
-  double_vector camera_position(0, 800, 0);
+  double_vector camera_position(0, 1600, 0);
   double_vector false_up(0, 0, 1);
   camera camera(camera_position, double_vector(0, 0, 0));
   screen screen(w, h, camera, 300, false_up);
-  double_vector light_position(0, 800, 0);
+  double_vector light_position(0, 2800, 0);
   double_vector light_color(1, 1, 1);
   double_vector specular_color(0.3, 0.3, 0.3);
   color light_specular_color(specular_color);
   light light(light_position, light_color, light_specular_color, 0.8);
   double_vector scene_ambient(0.3, 0.3, 0.3);
 
-  size_t n = 1;
+  size_t n = 5;
   std::vector<sphere> sphere_set;
   for (size_t i = 0; i < n; ++i) {
-    sphere sphere_(random(100, 300), random_center(w, h), random_vector(0, 1),
-                   random(0, 1), alpha);
+    sphere sphere_(random(100, 400), random_center(2000, 2000),
+                   random_vector(0, 1), random(0, 1), alpha);
     sphere_.print();
     sphere_set.push_back(sphere_);
   }
