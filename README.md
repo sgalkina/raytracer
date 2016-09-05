@@ -1,7 +1,6 @@
 raytracer
 =========
 ```
-make render
-./bin/render
+make display
 ```
 ![alt tag](images/current.png)
