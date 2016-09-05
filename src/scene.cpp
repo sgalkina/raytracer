@@ -39,11 +39,11 @@ scene::scene(camera c, screen sc, std::vector<sphere> shapes, double_vector amb,
   light_ = l;
 }
 
-ray scene::get_ray(int i, int j) {
+ray scene::get_ray(int i, int j) const {
   return ray::from_point_to_point(camera_.position, screen_.get_point(i, j));
 }
 
-color scene::get_color(ray ray) {
+color scene::get_color(ray ray) const {
   double t_min = 1e+15;
   size_t j = -1;
   double t = -1;
@@ -66,17 +66,17 @@ color scene::get_color(ray ray) {
   return amb_color + dif_color + spec_color;
 }
 
-color scene::get_ambient_color(sphere shape) {
+color scene::get_ambient_color(sphere shape) const {
   return ambient ^ shape.ambient();
 }
 
-color scene::get_diffuse_color(sphere shape, double_vector point) {
+color scene::get_diffuse_color(sphere shape, double_vector point) const {
   double sk =
       (light_.position() - point).get_unit_vector() & shape.normal(point);
   return light_.colour() * (shape.diffusion() * sk);
 }
 
-color scene::get_specular_color(sphere shape, double_vector point) {
+color scene::get_specular_color(sphere shape, double_vector point) const {
   double_vector light_direction = (point - light_.position()).get_unit_vector();
   double sk = light_direction & shape.normal(point);
   double_vector reflected = light_direction - shape.normal(point) * 2 * sk;
@@ -87,7 +87,7 @@ color scene::get_specular_color(sphere shape, double_vector point) {
          std::pow(reflected_sk, shape.alpha());
 }
 
-color scene::get_color_for_coordinates(int i, int j) {
+color scene::get_color_for_coordinates(int i, int j) const {
   ray ray = get_ray(i, j);
   return get_color(ray);
 }

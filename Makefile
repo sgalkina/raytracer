@@ -1,11 +1,12 @@
 CPP_FLAGS=-O2 -Wall -std=c++11
 
 render: bin/render
+	display bin/image.ppm
 
 bin/render: bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
-	clang++ -o bin/render $(CPP_FLAGS)  -L/usr/X11R6/lib -lm -lpthread -lX11 bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
+	clang++ -o bin/render $(CPP_FLAGS) bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
 
-bin/main.o: src/main.cpp src/vector.h src/shapes.h src/light.h src/ray.h src/vector.h src/scene.h external/CImg.h
+bin/main.o: src/main.cpp src/vector.h src/shapes.h src/light.h src/ray.h src/vector.h src/scene.h
 	clang++ -o bin/main.o -c $(CPP_FLAGS) src/main.cpp
 
 bin/colors.o: src/colors.h src/vector.h src/colors.cpp
