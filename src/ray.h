@@ -12,7 +12,7 @@ public:
 
   unit_vector direction() const;
   double_vector point_start() const;
-  double_vector apply(double t);
+  double_vector apply(double t) const;
 
 private:
   unit_vector direction_;

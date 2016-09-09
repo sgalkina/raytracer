@@ -14,7 +14,9 @@ ray ray::from_point_to_point(double_vector const &point_start,
   return from_point_to_direction(point_start, point_end - point_start);
 }
 
-double_vector ray::apply(double t) { return point_start_ + direction_ * t; }
+double_vector ray::apply(double t) const {
+  return point_start_ + direction_ * t;
+}
 
 unit_vector ray::direction() const { return direction_; }
 double_vector ray::point_start() const { return point_start_; }

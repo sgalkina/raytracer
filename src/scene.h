@@ -36,14 +36,17 @@ private:
   screen screen_;
 
 public:
-  std::vector<sphere> shapes_set;
+  std::vector<std::shared_ptr<shape>> shapes_set;
   double_vector ambient;
   light light_;
-  scene(camera, screen, std::vector<sphere>, double_vector, light);
+  scene(camera, screen, std::vector<std::shared_ptr<shape>>, double_vector,
+        light);
   ray get_ray(int i, int j) const;
   color get_color(ray ray) const;
   color get_color_for_coordinates(int i, int j) const;
-  color get_ambient_color(sphere shape) const;
-  color get_diffuse_color(sphere shape, double_vector point) const;
-  color get_specular_color(sphere shape, double_vector point) const;
+  color get_ambient_color(std::shared_ptr<shape> const shape_) const;
+  color get_diffuse_color(std::shared_ptr<shape> const shape_,
+                          double_vector point) const;
+  color get_specular_color(std::shared_ptr<shape> const shape_,
+                           double_vector point) const;
 };

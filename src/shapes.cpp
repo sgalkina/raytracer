@@ -45,3 +45,41 @@ void sphere::print() const {
             << "Alpha: " << alpha() << "\n"
             << std::endl;
 }
+
+triangle::triangle(double_vector A, double_vector B, double_vector C,
+                   double_vector amb, double dif, double al)
+    : shape(amb, dif, al), A_(A), B_(B), C_(C) {}
+
+double triangle::area(double_vector A, double_vector B, double_vector C) const {
+  double result = ((A - B).find_length() * (A - C).find_length()) / 2;
+  assert(result >= 0 && "Area is less than zero");
+  return result;
+}
+
+double triangle::area() const { return area(A_, B_, C_); }
+
+bool triangle::is_inside(double_vector const &P) const {
+  double denominator = 2 * area();
+  double a = area(A_, C_, P) / denominator;
+  double b = area(B_, C_, P) / denominator;
+  double c = area(A_, B_, P) / denominator;
+  return (a <= 1 && b <= 1 && c <= 1 && (std::abs(1 - a - b - c) < 1e-6));
+}
+
+double triangle::intersect(ray const &ray) const {
+  double_vector P = B_;
+  double_vector norm = normal(P);
+  double denominator = norm & (ray.apply(1) - ray.point_start());
+  if (std::abs(denominator) < 1e-6)
+    return -1;
+  double t = (norm & (P - ray.point_start())) / denominator;
+  double_vector V = ray.apply(t);
+  if (is_inside(V)) {
+    return t;
+  }
+  return -1;
+}
+
+double_vector triangle::normal(double_vector const &P) const {
+  return ((A_ - P) % (P - C_)).get_unit_vector();
+}
