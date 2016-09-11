@@ -60,37 +60,19 @@ int main() {
   light light(light_position, light_color, light_specular_color, 0.8);
   double_vector scene_ambient(0.3, 0.3, 0.3);
 
-  size_t n = 0;
+  size_t n = 5;
   std::vector<std::shared_ptr<shape>> shape_set;
   for (size_t i = 0; i < n; ++i) {
     std::shared_ptr<shape> sphere_(
-        // new sphere(random(distance / 20, distance / 5),
-        // random_center(distance),
-        //            random_vector(0, 1), random(0, 1), alpha));
-        new sphere(1000, double_vector(1000, 0, 2000), random_vector(0, 1),
-                   random(0, 1), alpha));
+        new sphere(random(distance / 20, distance / 5), random_center(distance),
+                   random_vector(0, 1), random(0, 1), alpha));
     shape_set.push_back(sphere_);
-
-    std::shared_ptr<shape> sphere2_(
-        // new sphere(random(distance / 20, distance / 5),
-        // random_center(distance),
-        //            random_vector(0, 1), random(0, 1), alpha));
-        new sphere(1000, double_vector(-2000, 0, 2000), random_vector(0, 1),
-                   random(0, 1), alpha));
-    shape_set.push_back(sphere2_);
-    std::shared_ptr<shape> sphere3_(
-        // new sphere(random(distance / 20, distance / 5),
-        // random_center(distance),
-        //            random_vector(0, 1), random(0, 1), alpha));
-        new sphere(1000, double_vector(1000, 0, 1000), random_vector(0, 1),
-                   random(0, 1), alpha));
-    shape_set.push_back(sphere3_);
   }
-  size_t k = 1;
+  size_t k = 2;
   for (size_t i = 0; i < k; ++i) {
     std::shared_ptr<shape> triangle_(new triangle(
-        double_vector(1000, 0, 2000), double_vector(-2000, 0, 2000),
-        double_vector(1000, 0, 1000), random_vector(0, 1), random(0, 1),
+        random_vector(-distance, distance), random_vector(-distance, distance),
+        random_vector(-distance, distance), random_vector(0, 1), random(0, 1),
         alpha));
     shape_set.push_back(triangle_);
   }

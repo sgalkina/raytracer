@@ -51,7 +51,9 @@ triangle::triangle(double_vector A, double_vector B, double_vector C,
     : shape(amb, dif, al), A_(A), B_(B), C_(C) {}
 
 double triangle::area(double_vector A, double_vector B, double_vector C) const {
-  double result = ((A - B).find_length() * (A - C).find_length()) / 2;
+  double_vector cross = (A - B) % (A - C);
+  double result = 0.5 * sqrt(cross.x() * cross.x() + cross.y() * cross.y() +
+                             cross.z() * cross.z());
   assert(result >= 0 && "Area is less than zero");
   return result;
 }
@@ -59,11 +61,10 @@ double triangle::area(double_vector A, double_vector B, double_vector C) const {
 double triangle::area() const { return area(A_, B_, C_); }
 
 bool triangle::is_inside(double_vector const &P) const {
-  double denominator = 2 * area();
-  double a = area(A_, C_, P) / denominator;
-  double b = area(B_, C_, P) / denominator;
-  double c = area(A_, B_, P) / denominator;
-  return (a <= 1 && b <= 1 && c <= 1 && (std::abs(1 - a - b - c) < 1e-6));
+  double a = area(A_, C_, P) / area();
+  double b = area(B_, C_, P) / area();
+  double c = area(A_, B_, P) / area();
+  return (a <= 1 && b <= 1 && (std::abs(1 - a - b - c) < 1e-6));
 }
 
 double triangle::intersect(ray const &ray) const {
@@ -81,5 +82,5 @@ double triangle::intersect(ray const &ray) const {
 }
 
 double_vector triangle::normal(double_vector const &P) const {
-  return ((A_ - P) % (P - C_)).get_unit_vector();
+  return ((A_ - P) % (C_ - P)).get_unit_vector();
 }
