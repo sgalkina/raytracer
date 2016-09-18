@@ -6,6 +6,7 @@
 #include "vector.h"
 #include <cmath>
 #include <iostream>
+#include <memory>
 #include <vector>
 
 camera::camera(double_vector point_start, double_vector point_end) {

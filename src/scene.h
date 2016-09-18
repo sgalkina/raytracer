@@ -4,6 +4,7 @@
 #include "ray.h"
 #include "shapes.h"
 #include "vector.h"
+#include <memory>
 #include <vector>
 
 class camera {

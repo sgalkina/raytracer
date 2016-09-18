@@ -12,6 +12,7 @@
 #include <fstream>
 #include <iostream>
 #include <memory>
+#include <sstream>
 #include <vector>
 
 double random(long from, long to) {
@@ -42,54 +43,65 @@ void make_image(size_t width, size_t height, scene const &sc) {
   }
 }
 
+std::vector<std::shared_ptr<shape>> read_model() {
+  double alpha = 10;
+  std::vector<std::shared_ptr<shape>> result;
+  std::vector<double_vector> vertexes;
+  std::ifstream f("models/utah.obj");
+  std::string line;
+  if (f.is_open()) {
+    while (getline(f, line)) {
+      if (line[0] == 'v') {
+        std::vector<double> holder;
+        std::istringstream s(line);
+        for (std::string l; std::getline(s, l, ' ');) {
+          if (l != "" && l[0] != 'v') {
+            holder.push_back(std::stod(l));
+          }
+        }
+        vertexes.push_back(double_vector(holder[0], holder[1], holder[2]));
+        holder.clear();
+      } else if (line[0] == 'f') {
+        std::vector<double_vector> holder;
+        std::istringstream s(line);
+        for (std::string l; std::getline(s, l, ' ');) {
+          if (l != "" && l[0] != 'f') {
+            std::istringstream inner(l);
+            for (std::string i; std::getline(inner, i, '\\');) {
+              holder.push_back(vertexes[std::stoi(i) - 1]);
+              break;
+            }
+          }
+        }
+        std::shared_ptr<shape> triangle_(
+            new triangle(holder[0], holder[1], holder[2], random_vector(0, 1),
+                         random(0, 1), alpha));
+        result.push_back(triangle_);
+        holder.clear();
+      }
+    }
+    f.close();
+  }
+  return result;
+}
+
 int main() {
   std::srand(std::time(0));
 
-  size_t w = 640;
-  size_t h = 640;
-  double alpha = 10;
-  int distance = 5000;
-  double_vector camera_position(0, distance, 0);
+  size_t w = 40;
+  size_t h = 30;
+  double_vector camera_position(0, 40, 90);
   double_vector false_up(0, 0, 1);
   camera camera(camera_position, double_vector(0, 0, 0));
-  screen screen(w, h, camera, 300, false_up);
-  double_vector light_position(1000, 2800, 300);
+  screen screen(w, h, camera, 80, false_up);
+  double_vector light_position(80, 80, 50);
   double_vector light_color(1, 1, 1);
   double_vector specular_color(0.3, 0.3, 0.3);
   color light_specular_color(specular_color);
   light light(light_position, light_color, light_specular_color, 0.8);
   double_vector scene_ambient(0.3, 0.3, 0.3);
-
-  size_t n = 5;
-  std::vector<std::shared_ptr<shape>> shape_set;
-  for (size_t i = 0; i < n; ++i) {
-    std::shared_ptr<shape> sphere_(
-        new sphere(random(distance / 20, distance / 5), random_center(distance),
-                   random_vector(0, 1), random(0, 1), alpha));
-    shape_set.push_back(sphere_);
-  }
-  size_t k = 2;
-  for (size_t i = 0; i < k; ++i) {
-    std::shared_ptr<shape> triangle_(new triangle(
-        random_vector(-distance, distance), random_vector(-distance, distance),
-        random_vector(-distance, distance), random_vector(0, 1), random(0, 1),
-        alpha));
-    shape_set.push_back(triangle_);
-  }
-
-  scene scenere(camera, screen, shape_set, scene_ambient, light);
+  scene scenere(camera, screen, read_model(), scene_ambient, light);
   make_image(w, h, scenere);
-
-  // cimg_library::CImg<unsigned char> img(w, h, 1, 3);
-  // double_vector new_col(0, 0, 0);
-  // cimg_forXY(img, x, y) {
-  //   new_col = scene.get_color_for_coordinates(x,
-  //   y).decode_to_CImg_format();
-  //   img(x, y, 0, 0) = new_col.x();
-  //   img(x, y, 0, 1) = new_col.y();
-  //   img(x, y, 0, 2) = new_col.z();
-  // }
-  // img.display("raytracer");
 
   return 0;
 }
