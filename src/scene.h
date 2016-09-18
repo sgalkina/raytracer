@@ -17,14 +17,16 @@ public:
 
 class screen {
 public:
-  screen(size_t w, size_t h, camera current_camera, double focus,
-         double_vector up);
+  screen(size_t w, size_t h, size_t w_res, size_t h_res, camera current_camera,
+         double focus, double_vector up);
   screen();
   double_vector get_point(int i, int j) const;
 
 private:
   size_t width_;
   size_t heigth_;
+  size_t width_res_;
+  size_t heigth_res_;
   double_vector center_;
   unit_vector normal_;
   unit_vector right_;

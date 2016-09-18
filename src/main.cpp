@@ -45,6 +45,8 @@ void make_image(size_t width, size_t height, scene const &sc) {
 
 std::vector<std::shared_ptr<shape>> read_model() {
   double alpha = 10;
+  ray_vector<double> ambient = random_vector(0, 1);
+  double diffusion = random(0, 1);
   std::vector<std::shared_ptr<shape>> result;
   std::vector<double_vector> vertexes;
   std::ifstream f("models/utah.obj");
@@ -73,9 +75,8 @@ std::vector<std::shared_ptr<shape>> read_model() {
             }
           }
         }
-        std::shared_ptr<shape> triangle_(
-            new triangle(holder[0], holder[1], holder[2], random_vector(0, 1),
-                         random(0, 1), alpha));
+        std::shared_ptr<shape> triangle_(new triangle(
+            holder[0], holder[1], holder[2], ambient, diffusion, alpha));
         result.push_back(triangle_);
         holder.clear();
       }
@@ -90,18 +91,20 @@ int main() {
 
   size_t w = 40;
   size_t h = 30;
+  size_t w_res = 640;
+  size_t h_res = 480;
   double_vector camera_position(0, 40, 90);
-  double_vector false_up(0, 0, 1);
+  double_vector false_up(0, 0, -1);
   camera camera(camera_position, double_vector(0, 0, 0));
-  screen screen(w, h, camera, 80, false_up);
-  double_vector light_position(80, 80, 50);
+  screen screen(w, h, w_res, h_res, camera, 80, false_up);
+  double_vector light_position(80, -150, 50);
   double_vector light_color(1, 1, 1);
   double_vector specular_color(0.3, 0.3, 0.3);
   color light_specular_color(specular_color);
   light light(light_position, light_color, light_specular_color, 0.8);
   double_vector scene_ambient(0.3, 0.3, 0.3);
   scene scenere(camera, screen, read_model(), scene_ambient, light);
-  make_image(w, h, scenere);
+  make_image(w_res, h_res, scenere);
 
   return 0;
 }
