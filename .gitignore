@@ -16,3 +16,5 @@
 bin/render
 bin/*.ppm
 bin/*png
+
+FlameGraph

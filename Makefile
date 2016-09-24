@@ -5,6 +5,15 @@ display: bin/render
 	mogrify -format png bin/image.ppm
 	mv bin/image.png images/current.png
 
+profile: bin/render
+	sudo perf record -g ./bin/render
+	sudo perf script > out.perf
+	cd FlameGraph && sudo ./stackcollapse-perf.pl ../out.perf > ../out.folded
+	cd FlameGraph && ./flamegraph.pl ../out.folded > ../kernel.svg
+	mv kernel.svg images/kernel.svg
+	rm out.*
+	sudo rm perf.*
+
 render: bin/render
 
 bin/render: bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
