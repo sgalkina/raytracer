@@ -48,4 +48,5 @@ private:
   double_vector A_;
   double_vector B_;
   double_vector C_;
+  double area_;
 };

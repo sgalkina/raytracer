@@ -48,7 +48,7 @@ void sphere::print() const {
 
 triangle::triangle(double_vector A, double_vector B, double_vector C,
                    double_vector amb, double dif, double al)
-    : shape(amb, dif, al), A_(A), B_(B), C_(C) {}
+    : shape(amb, dif, al), A_(A), B_(B), C_(C), area_(area()) {}
 
 double triangle::area(double_vector A, double_vector B, double_vector C) const {
   double_vector cross = (A - B) % (A - C);
@@ -61,9 +61,9 @@ double triangle::area(double_vector A, double_vector B, double_vector C) const {
 double triangle::area() const { return area(A_, B_, C_); }
 
 bool triangle::is_inside(double_vector const &P) const {
-  double a = area(A_, C_, P) / area();
-  double b = area(B_, C_, P) / area();
-  double c = area(A_, B_, P) / area();
+  double a = area(A_, C_, P) / area_;
+  double b = area(B_, C_, P) / area_;
+  double c = area(A_, B_, P) / area_;
   return (a <= 1 && b <= 1 && (std::abs(1 - a - b - c) < 1e-6));
 }
 
