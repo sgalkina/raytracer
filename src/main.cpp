@@ -3,7 +3,8 @@
 #include "light.h"
 #include "ray.h"
 #include "scene.h"
-#include "shapes.h"
+#include "sphere.h"
+#include "triangle.h"
 #include "vector.h"
 #include <cmath>
 #include <cstdlib>

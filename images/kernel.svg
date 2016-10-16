@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" width="1200" height="258" onload="init(evt)" viewBox="0 0 1200 258" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" width="1200" height="274" onload="init(evt)" viewBox="0 0 1200 274" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <!-- Flame graph stack visualization. See https://github.com/brendangregg/FlameGraph for latest version, and http://www.brendangregg.com/flamegraphs.html for examples. -->
 <defs >
 	<linearGradient id="background" y1="0" y2="1" x1="0" x2="0" >
@@ -330,162 +330,290 @@
 	}
 ]]>
 </script>
-<rect x="0.0" y="0" width="1200.0" height="258.0" fill="url(#background)"  />
+<rect x="0.0" y="0" width="1200.0" height="274.0" fill="url(#background)"  />
 <text text-anchor="middle" x="600.00" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >Flame Graph</text>
-<text text-anchor="" x="10.00" y="241" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="details" > </text>
+<text text-anchor="" x="10.00" y="257" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="details" > </text>
 <text text-anchor="" x="10.00" y="24" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="unzoom" onclick="unzoom()" style="opacity:0.0;cursor:pointer" >Reset Zoom</text>
 <text text-anchor="" x="1090.00" y="24" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="search" onmouseover="searchover()" onmouseout="searchout()" onclick="search_prompt()" style="opacity:0.1;cursor:pointer" >Search</text>
-<text text-anchor="" x="1090.00" y="241" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="matched" > </text>
+<text text-anchor="" x="1090.00" y="257" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="matched" > </text>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>local_apic_timer_interrupt (37 samples, 0.02%)</title><rect x="1189.5" y="129" width="0.2" height="15.0" fill="rgb(254,222,27)" rx="2" ry="2" />
-<text text-anchor="" x="1192.46" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>do_IRQ (37 samples, 0.03%)</title><rect x="1189.6" y="161" width="0.4" height="15.0" fill="rgb(208,50,54)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>smp_apic_timer_interrupt (56 samples, 0.03%)</title><rect x="683.3" y="145" width="0.4" height="15.0" fill="rgb(231,178,30)" rx="2" ry="2" />
-<text text-anchor="" x="686.26" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>tick_sched_handle.isra.14 (14 samples, 0.01%)</title><rect x="1189.4" y="81" width="0.2" height="15.0" fill="rgb(214,19,24)" rx="2" ry="2" />
+<text text-anchor="" x="1192.44" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>triangle::is_inside (72,631 samples, 45.18%)</title><rect x="150.6" y="177" width="533.2" height="15.0" fill="rgb(217,100,20)" rx="2" ry="2" />
-<text text-anchor="" x="153.61" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >triangle::is_inside</text>
+<title>entry_SYSCALL_64_fastpath (13 samples, 0.01%)</title><rect x="13.0" y="177" width="0.1" height="15.0" fill="rgb(239,90,41)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>local_apic_timer_interrupt (46 samples, 0.03%)</title><rect x="683.3" y="129" width="0.4" height="15.0" fill="rgb(213,194,16)" rx="2" ry="2" />
-<text text-anchor="" x="686.33" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>do_IRQ (42 samples, 0.04%)</title><rect x="788.6" y="161" width="0.4" height="15.0" fill="rgb(207,99,13)" rx="2" ry="2" />
+<text text-anchor="" x="791.59" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>scene::get_specular_color (15 samples, 0.01%)</title><rect x="79.9" y="177" width="0.1" height="15.0" fill="rgb(233,216,45)" rx="2" ry="2" />
-<text text-anchor="" x="82.88" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>do_IRQ (15 samples, 0.01%)</title><rect x="214.0" y="161" width="0.2" height="15.0" fill="rgb(215,104,46)" rx="2" ry="2" />
+<text text-anchor="" x="217.03" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>scheduler_tick (14 samples, 0.01%)</title><rect x="1189.6" y="33" width="0.1" height="15.0" fill="rgb(223,206,47)" rx="2" ry="2" />
-<text text-anchor="" x="1192.60" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>apic_timer_interrupt (31 samples, 0.03%)</title><rect x="1189.3" y="177" width="0.3" height="15.0" fill="rgb(206,142,47)" rx="2" ry="2" />
+<text text-anchor="" x="1192.29" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>__hrtimer_run_queues (38 samples, 0.02%)</title><rect x="683.4" y="97" width="0.2" height="15.0" fill="rgb(206,28,46)" rx="2" ry="2" />
-<text text-anchor="" x="686.36" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>handle_edge_irq (11 samples, 0.01%)</title><rect x="214.0" y="129" width="0.1" height="15.0" fill="rgb(245,55,16)" rx="2" ry="2" />
+<text text-anchor="" x="217.03" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>tick_sched_timer (34 samples, 0.02%)</title><rect x="683.4" y="81" width="0.2" height="15.0" fill="rgb(249,229,4)" rx="2" ry="2" />
-<text text-anchor="" x="686.39" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>ret_from_intr (37 samples, 0.03%)</title><rect x="1189.6" y="177" width="0.4" height="15.0" fill="rgb(254,110,20)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>__hrtimer_run_queues (33 samples, 0.02%)</title><rect x="1189.5" y="97" width="0.2" height="15.0" fill="rgb(233,102,35)" rx="2" ry="2" />
-<text text-anchor="" x="1192.46" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>sys_writev (13 samples, 0.01%)</title><rect x="13.0" y="161" width="0.1" height="15.0" fill="rgb(229,203,31)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>ret_from_intr (22 samples, 0.01%)</title><rect x="1189.8" y="161" width="0.2" height="15.0" fill="rgb(234,15,19)" rx="2" ry="2" />
-<text text-anchor="" x="1192.79" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>update_process_times (20 samples, 0.02%)</title><rect x="788.2" y="65" width="0.2" height="15.0" fill="rgb(210,93,50)" rx="2" ry="2" />
+<text text-anchor="" x="791.18" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>std::__ostream_insertchar, std::char_traitschar  (62 samples, 0.04%)</title><rect x="11.3" y="161" width="0.5" height="15.0" fill="rgb(215,41,28)" rx="2" ry="2" />
-<text text-anchor="" x="14.32" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>std::basic_streambufchar, std::char_traitschar ::xsputn (15 samples, 0.01%)</title><rect x="12.5" y="177" width="0.2" height="15.0" fill="rgb(212,226,22)" rx="2" ry="2" />
+<text text-anchor="" x="15.55" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>std::ostream::sentry::sentry (25 samples, 0.02%)</title><rect x="11.9" y="161" width="0.2" height="15.0" fill="rgb(206,91,54)" rx="2" ry="2" />
-<text text-anchor="" x="14.88" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>handle_irq_event (40 samples, 0.03%)</title><rect x="788.6" y="113" width="0.4" height="15.0" fill="rgb(251,214,22)" rx="2" ry="2" />
+<text text-anchor="" x="791.59" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>apic_timer_interrupt (54 samples, 0.03%)</title><rect x="1189.3" y="161" width="0.4" height="15.0" fill="rgb(209,177,15)" rx="2" ry="2" />
-<text text-anchor="" x="1192.33" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>tick_sched_timer (30 samples, 0.03%)</title><rect x="788.1" y="97" width="0.3" height="15.0" fill="rgb(243,18,6)" rx="2" ry="2" />
+<text text-anchor="" x="791.08" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>irq_exit (14 samples, 0.01%)</title><rect x="1189.4" y="129" width="0.1" height="15.0" fill="rgb(247,13,15)" rx="2" ry="2" />
-<text text-anchor="" x="1192.35" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>triangle::is_inside (56,166 samples, 48.72%)</title><rect x="214.2" y="193" width="574.9" height="15.0" fill="rgb(239,189,53)" rx="2" ry="2" />
+<text text-anchor="" x="217.19" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >triangle::is_inside</text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>update_process_times (20 samples, 0.01%)</title><rect x="1189.6" y="49" width="0.1" height="15.0" fill="rgb(206,91,12)" rx="2" ry="2" />
-<text text-anchor="" x="1192.55" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>ray::from_point_to_point (54 samples, 0.05%)</title><rect x="10.5" y="177" width="0.6" height="15.0" fill="rgb(219,82,30)" rx="2" ry="2" />
+<text text-anchor="" x="13.51" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>triangle::intersect (9,583 samples, 5.96%)</title><rect x="80.3" y="177" width="70.3" height="15.0" fill="rgb(237,185,46)" rx="2" ry="2" />
-<text text-anchor="" x="83.26" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >triangl..</text>
+<title>triangle::normal (39,165 samples, 33.97%)</title><rect x="789.1" y="193" width="400.9" height="15.0" fill="rgb(236,218,3)" rx="2" ry="2" />
+<text text-anchor="" x="792.11" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >triangle::normal</text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>ray::point_start (1,548 samples, 0.96%)</title><rect x="35.9" y="177" width="11.3" height="15.0" fill="rgb(237,46,51)" rx="2" ry="2" />
-<text text-anchor="" x="38.88" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>scheduler_tick (10 samples, 0.01%)</title><rect x="1189.5" y="49" width="0.1" height="15.0" fill="rgb(249,223,33)" rx="2" ry="2" />
+<text text-anchor="" x="1192.48" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>scene::get_color_for_coordinates (51 samples, 0.03%)</title><rect x="10.9" y="161" width="0.4" height="15.0" fill="rgb(238,211,30)" rx="2" ry="2" />
-<text text-anchor="" x="13.90" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>do_readv_writev (13 samples, 0.01%)</title><rect x="13.0" y="129" width="0.1" height="15.0" fill="rgb(224,58,41)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>tick_sched_handle.isra.14 (20 samples, 0.01%)</title><rect x="1189.6" y="65" width="0.1" height="15.0" fill="rgb(232,31,39)" rx="2" ry="2" />
-<text text-anchor="" x="1192.55" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>handle_irq (13 samples, 0.01%)</title><rect x="214.0" y="145" width="0.2" height="15.0" fill="rgb(231,188,4)" rx="2" ry="2" />
+<text text-anchor="" x="217.03" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>hrtimer_interrupt (37 samples, 0.02%)</title><rect x="1189.5" y="113" width="0.2" height="15.0" fill="rgb(239,185,52)" rx="2" ry="2" />
-<text text-anchor="" x="1192.46" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>task_tick_fair (11 samples, 0.01%)</title><rect x="788.3" y="33" width="0.1" height="15.0" fill="rgb(207,223,14)" rx="2" ry="2" />
+<text text-anchor="" x="791.26" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>ray::from_point_to_point (52 samples, 0.03%)</title><rect x="10.4" y="161" width="0.4" height="15.0" fill="rgb(243,125,23)" rx="2" ry="2" />
-<text text-anchor="" x="13.44" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>scene::get_color_for_coordinates (54 samples, 0.05%)</title><rect x="11.1" y="177" width="0.5" height="15.0" fill="rgb(241,163,3)" rx="2" ry="2" />
+<text text-anchor="" x="14.07" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>render (160,737 samples, 99.99%)</title><rect x="10.1" y="193" width="1179.9" height="15.0" fill="rgb(251,85,53)" rx="2" ry="2" />
-<text text-anchor="" x="13.07" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >render</text>
+<title>handle_irq_event_percpu (40 samples, 0.03%)</title><rect x="788.6" y="97" width="0.4" height="15.0" fill="rgb(222,63,12)" rx="2" ry="2" />
+<text text-anchor="" x="791.59" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>hrtimer_interrupt (44 samples, 0.03%)</title><rect x="683.3" y="113" width="0.4" height="15.0" fill="rgb(247,114,45)" rx="2" ry="2" />
-<text text-anchor="" x="686.35" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>make_image (10 samples, 0.01%)</title><rect x="10.4" y="177" width="0.1" height="15.0" fill="rgb(233,170,32)" rx="2" ry="2" />
+<text text-anchor="" x="13.41" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>apic_timer_interrupt (59 samples, 0.04%)</title><rect x="683.2" y="161" width="0.5" height="15.0" fill="rgb(216,108,54)" rx="2" ry="2" />
-<text text-anchor="" x="686.24" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>vfs_writev (13 samples, 0.01%)</title><rect x="13.0" y="145" width="0.1" height="15.0" fill="rgb(234,47,12)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>handle_irq (16 samples, 0.01%)</title><rect x="1189.8" y="129" width="0.1" height="15.0" fill="rgb(234,208,41)" rx="2" ry="2" />
-<text text-anchor="" x="1192.80" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>__exp1 (12 samples, 0.01%)</title><rect x="13.2" y="193" width="0.1" height="15.0" fill="rgb(210,211,37)" rx="2" ry="2" />
+<text text-anchor="" x="16.16" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>std::basic_filebufchar, std::char_traitschar ::xsputn (17 samples, 0.01%)</title><rect x="80.0" y="177" width="0.1" height="15.0" fill="rgb(219,80,45)" rx="2" ry="2" />
-<text text-anchor="" x="83.01" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>tick_sched_handle.isra.14 (22 samples, 0.02%)</title><rect x="788.2" y="81" width="0.2" height="15.0" fill="rgb(245,214,1)" rx="2" ry="2" />
+<text text-anchor="" x="791.16" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>scene::get_color (4,432 samples, 2.76%)</title><rect x="47.3" y="177" width="32.5" height="15.0" fill="rgb(235,4,49)" rx="2" ry="2" />
-<text text-anchor="" x="50.27" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >sc..</text>
+<title>__GI___writev (13 samples, 0.01%)</title><rect x="13.0" y="193" width="0.1" height="15.0" fill="rgb(236,57,14)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>tick_sched_handle.isra.14 (27 samples, 0.02%)</title><rect x="683.4" y="65" width="0.2" height="15.0" fill="rgb(221,217,11)" rx="2" ry="2" />
-<text text-anchor="" x="686.44" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>__hrtimer_run_queues (35 samples, 0.03%)</title><rect x="788.0" y="113" width="0.4" height="15.0" fill="rgb(230,140,26)" rx="2" ry="2" />
+<text text-anchor="" x="791.03" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>all (160,746 samples, 100%)</title><rect x="10.0" y="209" width="1180.0" height="15.0" fill="rgb(221,155,8)" rx="2" ry="2" />
-<text text-anchor="" x="13.00" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>handle_irq (40 samples, 0.03%)</title><rect x="788.6" y="145" width="0.4" height="15.0" fill="rgb(238,23,42)" rx="2" ry="2" />
+<text text-anchor="" x="791.59" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>smp_apic_timer_interrupt (53 samples, 0.03%)</title><rect x="1189.3" y="145" width="0.4" height="15.0" fill="rgb(236,121,48)" rx="2" ry="2" />
-<text text-anchor="" x="1192.34" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>__hrtimer_run_queues (21 samples, 0.02%)</title><rect x="1189.4" y="113" width="0.2" height="15.0" fill="rgb(239,226,7)" rx="2" ry="2" />
+<text text-anchor="" x="1192.37" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>ray::apply (3,162 samples, 1.97%)</title><rect x="12.7" y="177" width="23.2" height="15.0" fill="rgb(251,83,35)" rx="2" ry="2" />
-<text text-anchor="" x="15.66" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >r..</text>
+<title>apic_timer_interrupt (52 samples, 0.05%)</title><rect x="787.9" y="177" width="0.6" height="15.0" fill="rgb(223,123,8)" rx="2" ry="2" />
+<text text-anchor="" x="790.92" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>update_process_times (27 samples, 0.02%)</title><rect x="683.4" y="49" width="0.2" height="15.0" fill="rgb(214,135,28)" rx="2" ry="2" />
-<text text-anchor="" x="686.44" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>scene::get_color (4,856 samples, 4.21%)</title><rect x="64.4" y="193" width="49.7" height="15.0" fill="rgb(249,132,45)" rx="2" ry="2" />
+<text text-anchor="" x="67.44" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >scene..</text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>[unknown] (277 samples, 0.17%)</title><rect x="10.1" y="177" width="2.0" height="15.0" fill="rgb(233,0,12)" rx="2" ry="2" />
-<text text-anchor="" x="13.10" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>all (115,279 samples, 100%)</title><rect x="10.0" y="225" width="1180.0" height="15.0" fill="rgb(239,64,44)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="235.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>triangle::normal (68,961 samples, 42.90%)</title><rect x="683.8" y="177" width="506.2" height="15.0" fill="rgb(225,163,13)" rx="2" ry="2" />
-<text text-anchor="" x="686.77" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >triangle::normal</text>
+<title>handle_edge_irq (40 samples, 0.03%)</title><rect x="788.6" y="129" width="0.4" height="15.0" fill="rgb(229,5,5)" rx="2" ry="2" />
+<text text-anchor="" x="791.59" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>tick_sched_timer (32 samples, 0.02%)</title><rect x="1189.5" y="81" width="0.2" height="15.0" fill="rgb(243,214,34)" rx="2" ry="2" />
-<text text-anchor="" x="1192.46" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>update_process_times (14 samples, 0.01%)</title><rect x="1189.4" y="65" width="0.2" height="15.0" fill="rgb(223,200,48)" rx="2" ry="2" />
+<text text-anchor="" x="1192.44" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>scheduler_tick (15 samples, 0.01%)</title><rect x="683.5" y="33" width="0.1" height="15.0" fill="rgb(240,110,20)" rx="2" ry="2" />
-<text text-anchor="" x="686.53" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>handle_irq_event_percpu (34 samples, 0.03%)</title><rect x="1189.6" y="97" width="0.4" height="15.0" fill="rgb(231,151,1)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>do_IRQ (22 samples, 0.01%)</title><rect x="1189.8" y="145" width="0.2" height="15.0" fill="rgb(215,182,19)" rx="2" ry="2" />
-<text text-anchor="" x="1192.79" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>hrtimer_interrupt (37 samples, 0.03%)</title><rect x="788.0" y="129" width="0.4" height="15.0" fill="rgb(226,161,48)" rx="2" ry="2" />
+<text text-anchor="" x="791.03" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 <g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
-<title>__ieee754_pow_sse2 (15 samples, 0.01%)</title><rect x="12.4" y="177" width="0.1" height="15.0" fill="rgb(237,42,51)" rx="2" ry="2" />
-<text text-anchor="" x="15.36" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<title>triangle::intersect (9,717 samples, 8.43%)</title><rect x="114.7" y="193" width="99.5" height="15.0" fill="rgb(206,161,28)" rx="2" ry="2" />
+<text text-anchor="" x="117.72" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >triangle::in..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handle_edge_irq (34 samples, 0.03%)</title><rect x="1189.6" y="129" width="0.4" height="15.0" fill="rgb(226,209,29)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>std::ostream::sentry::sentry (13 samples, 0.01%)</title><rect x="12.7" y="177" width="0.2" height="15.0" fill="rgb(224,191,43)" rx="2" ry="2" />
+<text text-anchor="" x="15.72" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>color::decode_to_CImg_format (11 samples, 0.01%)</title><rect x="10.3" y="177" width="0.1" height="15.0" fill="rgb(238,79,45)" rx="2" ry="2" />
+<text text-anchor="" x="13.29" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>native_write_msr_safe (10 samples, 0.01%)</title><rect x="788.5" y="177" width="0.1" height="15.0" fill="rgb(233,25,49)" rx="2" ry="2" />
+<text text-anchor="" x="791.49" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ray::point_start (1,622 samples, 1.41%)</title><rect x="47.8" y="193" width="16.6" height="15.0" fill="rgb(215,201,4)" rx="2" ry="2" />
+<text text-anchor="" x="50.83" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ext4_file_write_iter (12 samples, 0.01%)</title><rect x="13.0" y="97" width="0.1" height="15.0" fill="rgb(229,86,40)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>smp_apic_timer_interrupt (51 samples, 0.04%)</title><rect x="787.9" y="161" width="0.6" height="15.0" fill="rgb(210,189,47)" rx="2" ry="2" />
+<text text-anchor="" x="790.93" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ret_from_intr (15 samples, 0.01%)</title><rect x="214.0" y="177" width="0.2" height="15.0" fill="rgb(211,192,17)" rx="2" ry="2" />
+<text text-anchor="" x="217.03" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>scene::get_specular_color (19 samples, 0.02%)</title><rect x="114.2" y="193" width="0.2" height="15.0" fill="rgb(223,14,9)" rx="2" ry="2" />
+<text text-anchor="" x="117.19" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>do_iter_readv_writev (12 samples, 0.01%)</title><rect x="13.0" y="113" width="0.1" height="15.0" fill="rgb(227,169,0)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>render (115,271 samples, 99.99%)</title><rect x="10.1" y="209" width="1179.9" height="15.0" fill="rgb(242,92,12)" rx="2" ry="2" />
+<text text-anchor="" x="13.08" y="219.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >render</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>i8042_interrupt (39 samples, 0.03%)</title><rect x="788.6" y="81" width="0.4" height="15.0" fill="rgb(206,20,54)" rx="2" ry="2" />
+<text text-anchor="" x="791.60" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__ieee754_pow_sse2 (16 samples, 0.01%)</title><rect x="13.3" y="193" width="0.1" height="15.0" fill="rgb(216,43,28)" rx="2" ry="2" />
+<text text-anchor="" x="16.29" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>smp_apic_timer_interrupt (10 samples, 0.01%)</title><rect x="213.9" y="161" width="0.1" height="15.0" fill="rgb(225,64,2)" rx="2" ry="2" />
+<text text-anchor="" x="216.90" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>apic_timer_interrupt (10 samples, 0.01%)</title><rect x="213.9" y="177" width="0.1" height="15.0" fill="rgb(236,33,3)" rx="2" ry="2" />
+<text text-anchor="" x="216.90" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__generic_file_write_iter (12 samples, 0.01%)</title><rect x="13.0" y="81" width="0.1" height="15.0" fill="rgb(243,213,51)" rx="2" ry="2" />
+<text text-anchor="" x="15.97" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handle_irq_event (34 samples, 0.03%)</title><rect x="1189.6" y="113" width="0.4" height="15.0" fill="rgb(250,195,39)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="123.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>std::basic_filebufchar, std::char_traitschar ::xsputn (22 samples, 0.02%)</title><rect x="114.4" y="193" width="0.2" height="15.0" fill="rgb(233,92,7)" rx="2" ry="2" />
+<text text-anchor="" x="117.39" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>[unknown] (274 samples, 0.24%)</title><rect x="10.1" y="193" width="2.8" height="15.0" fill="rgb(245,80,2)" rx="2" ry="2" />
+<text text-anchor="" x="13.10" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>hrtimer_interrupt (22 samples, 0.02%)</title><rect x="1189.4" y="129" width="0.2" height="15.0" fill="rgb(254,158,50)" rx="2" ry="2" />
+<text text-anchor="" x="1192.37" y="139.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>local_apic_timer_interrupt (38 samples, 0.03%)</title><rect x="788.0" y="145" width="0.4" height="15.0" fill="rgb(237,124,47)" rx="2" ry="2" />
+<text text-anchor="" x="791.02" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>std::__ostream_insertchar, std::char_traitschar  (58 samples, 0.05%)</title><rect x="11.6" y="177" width="0.6" height="15.0" fill="rgb(243,103,2)" rx="2" ry="2" />
+<text text-anchor="" x="14.65" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ray::apply (3,330 samples, 2.89%)</title><rect x="13.7" y="193" width="34.1" height="15.0" fill="rgb(231,5,12)" rx="2" ry="2" />
+<text text-anchor="" x="16.75" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >ra..</text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>__memcpy_sse2_unaligned (13 samples, 0.01%)</title><rect x="13.4" y="193" width="0.2" height="15.0" fill="rgb(245,74,16)" rx="2" ry="2" />
+<text text-anchor="" x="16.45" y="203.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>tick_sched_timer (18 samples, 0.02%)</title><rect x="1189.4" y="97" width="0.2" height="15.0" fill="rgb(238,174,43)" rx="2" ry="2" />
+<text text-anchor="" x="1192.40" y="107.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>smp_apic_timer_interrupt (30 samples, 0.03%)</title><rect x="1189.3" y="161" width="0.3" height="15.0" fill="rgb(235,129,46)" rx="2" ry="2" />
+<text text-anchor="" x="1192.30" y="171.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>handle_irq (36 samples, 0.03%)</title><rect x="1189.6" y="145" width="0.4" height="15.0" fill="rgb(247,11,18)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>std::basic_filebufchar, std::char_traitschar ::xsputn (30 samples, 0.03%)</title><rect x="12.2" y="177" width="0.3" height="15.0" fill="rgb(239,18,46)" rx="2" ry="2" />
+<text text-anchor="" x="15.24" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>i8042_interrupt (34 samples, 0.03%)</title><rect x="1189.6" y="81" width="0.4" height="15.0" fill="rgb(234,33,49)" rx="2" ry="2" />
+<text text-anchor="" x="1192.62" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>ret_from_intr (43 samples, 0.04%)</title><rect x="788.6" y="177" width="0.4" height="15.0" fill="rgb(246,7,14)" rx="2" ry="2" />
+<text text-anchor="" x="791.59" y="187.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>local_apic_timer_interrupt (23 samples, 0.02%)</title><rect x="1189.4" y="145" width="0.2" height="15.0" fill="rgb(228,123,13)" rx="2" ry="2" />
+<text text-anchor="" x="1192.36" y="155.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s(this)" onmouseout="c()" onclick="zoom(this)">
+<title>scheduler_tick (15 samples, 0.01%)</title><rect x="788.2" y="49" width="0.2" height="15.0" fill="rgb(229,111,39)" rx="2" ry="2" />
+<text text-anchor="" x="791.23" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
 </svg>

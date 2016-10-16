@@ -16,10 +16,10 @@ profile: bin/render
 
 render: bin/render
 
-bin/render: bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
-	clang++ -o bin/render $(CPP_FLAGS) bin/main.o bin/colors.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
+bin/render: bin/main.o bin/colors.o bin/triangle.o bin/sphere.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
+	clang++ -o bin/render $(CPP_FLAGS) bin/main.o bin/colors.o bin/triangle.o bin/sphere.o bin/shapes.o bin/light.o bin/ray.o bin/scene.o
 
-bin/main.o: src/main.cpp src/vector.h src/shapes.h src/light.h src/ray.h src/vector.h src/scene.h
+bin/main.o: src/main.cpp src/vector.h src/triangle.h src/sphere.h src/shapes.h src/light.h src/ray.h src/vector.h src/scene.h
 	clang++ -o bin/main.o -c $(CPP_FLAGS) src/main.cpp
 
 bin/colors.o: src/colors.h src/vector.h src/colors.cpp
@@ -27,6 +27,12 @@ bin/colors.o: src/colors.h src/vector.h src/colors.cpp
 
 bin/shapes.o: src/shapes.h src/shapes.cpp src/vector.h src/ray.h
 	clang++ -o bin/shapes.o -c $(CPP_FLAGS) src/shapes.cpp
+
+bin/triangle.o: src/triangle.h src/triangle.cpp src/shapes.h src/vector.h src/ray.h
+	clang++ -o bin/triangle.o -c $(CPP_FLAGS) src/triangle.cpp
+
+bin/sphere.o: src/sphere.h src/sphere.cpp src/shapes.h src/vector.h src/ray.h
+	clang++ -o bin/sphere.o -c $(CPP_FLAGS) src/sphere.cpp
 
 bin/light.o: src/light.h src/light.cpp src/vector.h src/colors.h
 	clang++ -o bin/light.o -c $(CPP_FLAGS) src/light.cpp
