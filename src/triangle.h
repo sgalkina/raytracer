@@ -9,13 +9,12 @@ public:
            double_vector ambient, double diffusion, double alpha);
   double intersect(ray const &ray) const;
   double_vector normal(double_vector const &P) const;
-  double area(double_vector A, double_vector B, double_vector C) const;
-  bool is_inside(double_vector const &P) const;
-  double area() const;
 
 private:
   double_vector A_;
   double_vector B_;
   double_vector C_;
-  double area_;
+  double_vector AB_;
+  double_vector AC_;
+  double_vector normal_;
 };
