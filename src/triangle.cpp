@@ -4,11 +4,13 @@
 #include "vector.h"
 #include <cassert>
 #include <cmath>
+#include <vector>
 
 triangle::triangle(double_vector A, double_vector B, double_vector C,
-                   double_vector amb, double dif, double al)
-    : shape(amb, dif, al), A_(A), B_(B), C_(C), AB_(B - A), AC_(C - A),
-      normal_((AB_ % AC_).get_unit_vector()) {}
+                   std::vector<double_vector> const &normals, double_vector amb,
+                   double dif, double al)
+    : shape(amb, dif, al), A_(A), B_(B), C_(C), normals_(normals), AB_(B - A),
+      AC_(C - A), normal_((AB_ % AC_).get_unit_vector()) {}
 
 double triangle::intersect(ray const &ray) const {
   double a = ray.direction() & normal_;

@@ -50,11 +50,12 @@ std::vector<std::shared_ptr<shape>> read_model() {
   double diffusion = random(0, 1);
   std::vector<std::shared_ptr<shape>> result;
   std::vector<double_vector> vertexes;
+  std::vector<double_vector> normals;
   std::ifstream f("models/utah.obj");
   std::string line;
   if (f.is_open()) {
     while (getline(f, line)) {
-      if (line[0] == 'v') {
+      if (line[0] == 'v' && line[1] != 't') {
         std::vector<double> holder;
         std::istringstream s(line);
         for (std::string l; std::getline(s, l, ' ');) {
@@ -62,24 +63,34 @@ std::vector<std::shared_ptr<shape>> read_model() {
             holder.push_back(std::stod(l));
           }
         }
-        vertexes.push_back(double_vector(holder[0], holder[1], holder[2]));
+        if (line[1] == 'n') {
+          normals.push_back(double_vector(holder[0], holder[1], holder[2]));
+        } else {
+          vertexes.push_back(double_vector(holder[0], holder[1], holder[2]));
+        }
         holder.clear();
       } else if (line[0] == 'f') {
+        assert(vertexes.size() == normals.size() &&
+               "Numbers of normals is not the same as number of vectors");
         std::vector<double_vector> holder;
+        std::vector<double_vector> normals_;
         std::istringstream s(line);
         for (std::string l; std::getline(s, l, ' ');) {
           if (l != "" && l[0] != 'f') {
             std::istringstream inner(l);
             for (std::string i; std::getline(inner, i, '\\');) {
               holder.push_back(vertexes[std::stoi(i) - 1]);
+              normals_.push_back(normals[std::stoi(i) - 1]);
               break;
             }
           }
         }
-        std::shared_ptr<shape> triangle_(new triangle(
-            holder[0], holder[1], holder[2], ambient, diffusion, alpha));
+        std::shared_ptr<shape> triangle_(
+            new triangle(holder[0], holder[1], holder[2], normals_, ambient,
+                         diffusion, alpha));
         result.push_back(triangle_);
         holder.clear();
+        normals_.clear();
       }
     }
     f.close();
