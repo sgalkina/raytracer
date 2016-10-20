@@ -9,10 +9,10 @@
 triangle::triangle(double_vector A, double_vector B, double_vector C,
                    std::vector<double_vector> const &normals, double_vector amb,
                    double dif, double al)
-    : shape(amb, dif, al), A_(A), B_(B), C_(C), normals_(normals), AB_(B - A),
-      AC_(C - A), normal_((AB_ % AC_).get_unit_vector()) {}
+    : shape(amb, dif, al), A_(A), normals_(normals), AB_(B - A), AC_(C - A) {}
 
 double triangle::intersect(ray const &ray) const {
+  double_vector normal_ = AB_ % AC_;
   double a = ray.direction() & normal_;
   double b = (A_ - ray.point_start()) & normal_;
   double t = b / a;
@@ -32,6 +32,16 @@ double triangle::intersect(ray const &ray) const {
   return -1;
 }
 
+double_vector ortogonal(double_vector const &a, double_vector const &b) {
+  return b - (a * ((b & a) / (a & a)));
+}
+
 double_vector triangle::normal(double_vector const &P) const {
-  return ((A_ - P) % (C_ - P)).get_unit_vector();
+  double_vector v = P - A_;
+  double_vector abn = ortogonal(AB_, AC_);
+  double_vector acn = ortogonal(AC_, AB_);
+  double x = (v & acn) / (AB_ & acn);
+  double y = (v & abn) / (AC_ & abn);
+  double z = 1 - x - y;
+  return double_vector(normals_[1] * x + normals_[2] * y + normals_[0] * z);
 }

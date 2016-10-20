@@ -68,7 +68,7 @@ color scene::get_ambient_color(std::shared_ptr<shape> const sh) const {
 
 color scene::get_diffuse_color(std::shared_ptr<shape> const sh,
                                double_vector point) const {
-  double sk = (light_.position() - point).get_unit_vector() & sh->normal(point);
+  double sk = (point - light_.position()).get_unit_vector() & sh->normal(point);
   return light_.colour() * (sh->diffusion() * sk);
 }
 

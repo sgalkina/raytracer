@@ -14,10 +14,7 @@ public:
 
 private:
   double_vector A_;
-  double_vector B_;
-  double_vector C_;
   std::vector<double_vector> normals_;
   double_vector AB_;
   double_vector AC_;
-  double_vector normal_;
 };

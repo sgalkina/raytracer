@@ -65,6 +65,8 @@ std::vector<std::shared_ptr<shape>> read_model() {
         }
         if (line[1] == 'n') {
           normals.push_back(double_vector(holder[0], holder[1], holder[2]));
+          normals[normals.size() - 1] =
+              normals[normals.size() - 1].get_unit_vector();
         } else {
           vertexes.push_back(double_vector(holder[0], holder[1], holder[2]));
         }
